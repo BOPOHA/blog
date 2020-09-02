@@ -8,6 +8,7 @@ canonifyurls = true
 paginate = 4
 
 [params]
+  ga_analytics = "UA-70800220-1"
   [params.designer]
     name = "Weru"
     url = "https://www.linkedin.com/in/dan-weru-profile/"
@@ -16,7 +17,6 @@ paginate = 4
     fullName = "Anatolii Vorona"
     bio = "It's time to flex. Write a short or not-so-short summary about yourself."
     url = "https://vorona.me"
-    ga_analytics = "UA-70800220-1"
 
 [permalinks]
   blog = "/:filename/"
