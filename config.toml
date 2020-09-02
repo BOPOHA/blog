@@ -2,9 +2,21 @@ baseURL = "https://blog.vorona.me/"
 languageCode = "en-us"
 title = "blog vorona me"
 theme = "hugo-swift-theme"
+author = "Anatolii Vorona"
+copyright = "Copyright © 2020–2022, Anatolii Vorona; all rights reserved."
+canonifyurls = true
+paginate = 4
 
 [params]
-  homeText = "Hugo blog from scratch."
+  [params.designer]
+    name = "Weru"
+    # url = "https://www.linkedin.com/in/..."
+  [[params.authors]]
+    name = "author"
+    fullName = "Anatolii Vorona"
+    bio = "It's time to flex. Write a short or not-so-short summary about yourself."
+    url = "https://vorona.me"
+    ga_analytics = "UA-70800220-1"
 
 [permalinks]
   blog = "/:filename/"
