@@ -10,7 +10,7 @@ paginate = 4
 [params]
   [params.designer]
     name = "Weru"
-    # url = "https://www.linkedin.com/in/..."
+    url = "https://www.linkedin.com/in/dan-weru-profile/"
   [[params.authors]]
     name = "author"
     fullName = "Anatolii Vorona"
