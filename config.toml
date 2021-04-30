@@ -1,0 +1,12 @@
+baseURL = "https://blog.vorona.me/"
+languageCode = "en-us"
+title = "blog vorona me"
+theme = "hugo-swift-theme"
+
+[params]
+  homeText = "Hugo blog from scratch."
+
+[permalinks]
+  blog = "/:filename/"
+
+
