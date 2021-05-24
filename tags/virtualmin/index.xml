@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtualmin on blog vorona me</title><link>https://blog.vorona.me/tags/virtualmin/</link><description>Recent content in virtualmin on blog vorona me</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/tags/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>[bash]
+yum install dovecot-pigeonhole -y
+cp -a /etc/procmailrc{,.orig}
+echo ‘
+DELIVER=/usr/libexec/dovecot/deliver
+LOGFILE=/var/log/procmail.log
+TRAP=/etc/webmin/virtual-server/procmail-logger.pl
+:0wi
+VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME
+EXITCODE=$?
+:0
+?/bin/test “$EXITCODE” = “73”
+/dev/null
+EXITCODE=0
+:0 ?/bin/test “$VIRTUALMIN” != “”
+{
+INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN
+}
+DEFAULT=$HOME/Maildir/
+ORGMAIL=$HOME/Maildir/
+DROPPRIVS=yes
+:0w
+| $DELIVER
+:0
+$DEFAULT
+‘ &amp;gt; /etc/procmailrc sed -i “s|protocol lda {|protocol lda {\n mail_plugins = $mail_plugins sieve|” /etc/dovecot/conf.d/15-lda.conf
+sed -i “s|^protocols =.*$|protocols = imap sieve|” /etc/dovecot/dovecot.conf
+echo ‘
+service managesieve-login {</description></item></channel></rss>

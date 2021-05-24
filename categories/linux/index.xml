@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog vorona me</title><link>https://blog.vorona.me/</link><description>Recent content on blog vorona me</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 30 Nov 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/index.xml" rel="self" type="application/rss+xml"/><item><title>google-chrome: clean passwords</title><link>https://blog.vorona.me/posts/2016-08-27-/</link><pubDate>Wed, 30 Nov 2016 00:00:00 +0000</pubDate><guid>https://blog.vorona.me/posts/2016-08-27-/</guid><description>Run google-chrome with –password-store=basic (example)
-[bash]
-dnf install sqliteman
-cp ~/.config/google-chrome/Default/Web\ Data{,.bak}
-sqliteman ~/.config/google-chrome/Default/Web\ Data
-[/bash]</description></item><item><title>install MediaWiki and update with git pull</title><link>https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/</link><pubDate>Mon, 07 Nov 2016 19:40:58 +0000</pubDate><guid>https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/</guid><description>Install:
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on blog vorona me</title><link>https://blog.vorona.me/categories/linux/</link><description>Recent content in Linux on blog vorona me</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 07 Nov 2016 19:40:58 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>install MediaWiki and update with git pull</title><link>https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/</link><pubDate>Mon, 07 Nov 2016 19:40:58 +0000</pubDate><guid>https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/</guid><description>Install:
 [code]
 cd ~/public_html
 git clone https://gerrit.wikimedia.org/r/mediawiki/core.git .
@@ -31,20 +26,7 @@ Example:
 ./public_html/.git
 [/code]
 Upgrade DB:
-[code]/opt/rh/rh-php72/root/usr/bin/php maintenance/update.</description></item><item><title>fedora: make gnome title bar smaller</title><link>https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/</link><pubDate>Mon, 29 Aug 2016 11:11:08 +0000</pubDate><guid>https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/</guid><description>Source.[bash]
-echo ‘
-window.ssd headerbar.titlebar {
-padding-top: 4px;
-padding-bottom: 4px;
-min-height: 0;
-}
-window.ssd headerbar.titlebar button.titlebutton {
-padding: 0px;
-min-height: 0;
-min-width: 0;
-}
-‘ &amp;gt; ~/.config/gtk-3.0/gtk.css
-[/bash]</description></item><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>[bash]
+[code]/opt/rh/rh-php72/root/usr/bin/php maintenance/update.</description></item><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>[bash]
 yum install dovecot-pigeonhole -y
 cp -a /etc/procmailrc{,.orig}
 echo ‘
@@ -134,20 +116,7 @@ dnf install google-chrome-stable -y
 dnf install pidgin-xmpp-receipts -y
 dnf install purple-skypeweb viber -y
 dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen \
-pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \</description></item><item><title>ZE551ML: flash firmware</title><link>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</link><pubDate>Fri, 29 Apr 2016 01:39:26 +0000</pubDate><guid>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</guid><description>Asus ZenFone 2
-Unlock boot loader.
-Unlock Device App you can find at https://www.asus.com here in Utilities:
-Direct link. Download lastest firmware…
-you can find it at https://www.asus.com here in Firmware (select “for WW SKU only*”)
-Also, direct link can be curled:
-[code language=”css”]
-URL=’https://www.asus.com/us/support/Download/39/1/0/13/Lk0Sg1Ulh0Ph49Hl/32/’
-curl -s $URL| grep -o “&amp;amp;#8221;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW.*.zip&amp;amp;#8221;”
-“http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW-2.20.40.174-user.zip”
-[/code]
-… TWRP
-u can found here https://dl.twrp.me/Z00A/ (twrp-3.0.0-0-Z00A.img 15.3M )
-… adb sideload</description></item><item><title>WP-monitoring</title><link>https://blog.vorona.me/2016/04/wp-monitoring/</link><pubDate>Fri, 29 Apr 2016 00:43:21 +0000</pubDate><guid>https://blog.vorona.me/2016/04/wp-monitoring/</guid><description>[bash]
+pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \</description></item><item><title>WP-monitoring</title><link>https://blog.vorona.me/2016/04/wp-monitoring/</link><pubDate>Fri, 29 Apr 2016 00:43:21 +0000</pubDate><guid>https://blog.vorona.me/2016/04/wp-monitoring/</guid><description>[bash]
 git clone https://github.com/rsmmr/git-notifier
 cd public_html
 git init

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Phablets on blog vorona me</title><link>https://blog.vorona.me/categories/phablets/</link><description>Recent content in Phablets on blog vorona me</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 29 Apr 2016 01:39:26 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/phablets/index.xml" rel="self" type="application/rss+xml"/><item><title>ZE551ML: flash firmware</title><link>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</link><pubDate>Fri, 29 Apr 2016 01:39:26 +0000</pubDate><guid>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</guid><description>Asus ZenFone 2
+Unlock boot loader.
+Unlock Device App you can find at https://www.asus.com here in Utilities:
+Direct link. Download lastest firmware…
+you can find it at https://www.asus.com here in Firmware (select “for WW SKU only*”)
+Also, direct link can be curled:
+[code language=”css”]
+URL=’https://www.asus.com/us/support/Download/39/1/0/13/Lk0Sg1Ulh0Ph49Hl/32/’
+curl -s $URL| grep -o “&amp;amp;#8221;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW.*.zip&amp;amp;#8221;”
+“http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW-2.20.40.174-user.zip”
+[/code]
+… TWRP
+u can found here https://dl.twrp.me/Z00A/ (twrp-3.0.0-0-Z00A.img 15.3M )
+… adb sideload</description></item></channel></rss>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtualmin on blog vorona me</title><link>https://blog.vorona.me/categories/virtualmin/</link><description>Recent content in virtualmin on blog vorona me</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>[bash]
+yum install dovecot-pigeonhole -y
+cp -a /etc/procmailrc{,.orig}
+echo ‘
+DELIVER=/usr/libexec/dovecot/deliver
+LOGFILE=/var/log/procmail.log
+TRAP=/etc/webmin/virtual-server/procmail-logger.pl
+:0wi
+VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME
+EXITCODE=$?
+:0
+?/bin/test “$EXITCODE” = “73”
+/dev/null
+EXITCODE=0
+:0 ?/bin/test “$VIRTUALMIN” != “”
+{
+INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN
+}
+DEFAULT=$HOME/Maildir/
+ORGMAIL=$HOME/Maildir/
+DROPPRIVS=yes
+:0w
+| $DELIVER
+:0
+$DEFAULT
+‘ &amp;gt; /etc/procmailrc sed -i “s|protocol lda {|protocol lda {\n mail_plugins = $mail_plugins sieve|” /etc/dovecot/conf.d/15-lda.conf
+sed -i “s|^protocols =.*$|protocols = imap sieve|” /etc/dovecot/dovecot.conf
+echo ‘
+service managesieve-login {</description></item><item><title>PHP: antivirus website check</title><link>https://blog.vorona.me/2016/07/php-antivirus-website-check/</link><pubDate>Thu, 21 Jul 2016 03:02:01 +0000</pubDate><guid>https://blog.vorona.me/2016/07/php-antivirus-website-check/</guid><description>Автоматизированное сканирование:
+Базовая установка:
+[bash]
+yum install clamav -y
+cd /root/install
+rm -rf maldetect-*
+wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
+tar xfz maldetect-current.tar.gz
+cd maldetect-*
+./install.sh
+cd ~ &amp;amp;&amp;amp; rm -rf /root/install/maldetect-* &amp;amp;&amp;amp; rm -rf /etc/cron.daily/maldet
+echo “.avi
+.jpg
+.flv
+.png ” &amp;gt; /usr/local/maldetect/ignore_file_ext
+[/bash]
+Сканирование:
+[bash]
+freshclam ; maldet -u ; maldet -d ;
+maldet –scan-all /home/
+[/bash]
+Ручная проверка на предмет подозрительных файлов:
+Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:</description></item><item><title>WP-monitoring</title><link>https://blog.vorona.me/2016/04/wp-monitoring/</link><pubDate>Fri, 29 Apr 2016 00:43:21 +0000</pubDate><guid>https://blog.vorona.me/2016/04/wp-monitoring/</guid><description>[bash]
+git clone https://github.com/rsmmr/git-notifier
+cd public_html
+git init
+echo ‘*.jpg
+*.jpeg
+*.gif
+*.png
+*.ico
+*.css
+*.zip
+*.tgz
+*.gz
+*.rar
+*.bz2
+*.doc
+*.xls
+*.exe
+*.pdf
+*.ppt
+*.txt
+*.tar
+*.mid
+*.midi
+*.wav
+*.bmp
+*.rtf
+*.js
+*.wmv
+*.wma
+*.mp3
+*.mpg
+*.avi
+*.mpeg
+*.mp4
+*.divx
+*.ttf
+*.woff2
+*.woff
+*.swf
+*.scss
+*.svg
+*.mo
+*.po
+*.pot
+*.eot
+*.xap
+*.json
+*.xml
+*.md
+*.non_progressive
+.git-notifier.dat
+.git-notifier.dat.bak
+git-notifier.log
+wp-content/cache/
+‘ &amp;gt; .gitignore
+git config hooks.mailinglist your@mail
+ln -s $HOME/git-notifier/git-notifier .</description></item></channel></rss>
