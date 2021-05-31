@@ -12,8 +12,8 @@ tags:
 
 ---
 <a href="http://blog.samalik.com/make-your-gnome-title-bar-smaller-fedora-24-update/" target="_blank">Source.</a>  
-[bash]  
-echo &#8216;  
+```shell 
+echo '  
 window.ssd headerbar.titlebar {  
 padding-top: 4px;  
 padding-bottom: 4px;  
@@ -25,5 +25,5 @@ padding: 0px;
 min-height: 0;  
 min-width: 0;  
 }  
-&#8216; > ~/.config/gtk-3.0/gtk.css  
-[/bash]
+' > ~/.config/gtk-3.0/gtk.css  
+```

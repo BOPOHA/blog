@@ -7,9 +7,11 @@ categories:
   - virtualmin
 
 ---
-**Автоматизированное сканирование:**  
-Базовая установка:  
-[bash]  
+**Автоматизированное сканирование:**
+
+Базовая установка:
+
+```shell
 yum install clamav -y  
 cd /root/install  
 rm -rf maldetect-*  
@@ -18,20 +20,20 @@ tar xfz maldetect-current.tar.gz
 cd maldetect-*  
 ./install.sh  
 cd ~ && rm -rf /root/install/maldetect-* && rm -rf /etc/cron.daily/maldet  
-echo &#8220;.avi  
+echo ".avi  
 .jpg  
 .flv  
-.png &#8221; > /usr/local/maldetect/ignore\_file\_ext  
-[/bash]  
+.png " > /usr/local/maldetect/ignore\_file\_ext  
+```
 Сканирование:  
-[bash]  
+```shell 
 freshclam ; maldet -u ; maldet -d ;  
-maldet &#8211;scan-all /home/  
-[/bash]
+maldet --scan-all /home/  
+```
 
 **Ручная проверка** на предмет подозрительных файлов:  
 Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:  
-[code]  
+```shell  
 eval.*str_rot13  
 eval.*base64_decode  
 eval.*gzinflate  
@@ -39,27 +41,27 @@ file\_put\_contents.*base64_decode
 base64_encode.*eval  
 eval.\*(.\*GLOBAL.*(  
 isset.\*(.\*eval.*(  
-[/code]  
+```  
 Однострочники такие:  
-[bash]  
+```shell 
 #  
-find /var/www/\*/data/www/\*/wp-content/uploads/ /home/\*/domains/\*/\*/wp-content/uploads/ /home/\*/\*/wp-content/uploads/ -iname &#8220;\*.php&#8221;  
-find /home/ -type f -iname &#8220;\*.php&#8221; -exec egrep -l &#8216;eval.\*str\_rot13|eval.\*base64\_decode|eval.\*gzinflate|file\_put\_contents.\*base64\_decode|base64\_encode.\*eval|eval.\*\(.\*GLOBAL.\*\(|isset.\*\(.\*eval.\*\(|\w{525,}&#8217; {} \;  
+find /var/www/\*/data/www/\*/wp-content/uploads/ /home/\*/domains/\*/\*/wp-content/uploads/ /home/\*/\*/wp-content/uploads/ -iname "\*.php"  
+find /home/ -type f -iname "\*.php" -exec egrep -l 'eval.\*str\_rot13|eval.\*base64\_decode|eval.\*gzinflate|file\_put\_contents.\*base64\_decode|base64\_encode.\*eval|eval.\*\(.\*GLOBAL.\*\(|isset.\*\(.\*eval.\*\(|\w{525,}' {} \;  
 #  
-[/bash]
+```
 
 На что еще можно обратить внимание:  
-[code]  
-@system(&#8220;killall  
-file\_put\_contents(&#8216;1.txt  
+```shell  
+@system("killall  
+file\_put\_contents('1.txt  
 assert(  
 FuncQueueObject  
 \x62\x61\x73\x65\x36\x34\x5f\x64\x65\x63\x6f\x64\x65 # == base64_decode  
 \x67\x7a\x69\x6e\x66\x6c\x61\x74\x65 # == gzinflate  
-[/code]
+```
 
 Интересные примеры:  
-[code]  
+```shell  
 <?php $k="ass"."ert"; $k(${"_PO"."ST"} ['pass']);?>
 
   
@@ -76,7 +78,3 @@ $yzcW[$i] = chr(ord($yzcW[$i])-1);
  return $yzcW;
  }eval(OLsy("
 ...
-[/code]
-
-
-</p>

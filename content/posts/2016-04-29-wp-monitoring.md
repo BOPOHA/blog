@@ -7,11 +7,11 @@ categories:
   - virtualmin
 
 ---
-[bash]  
+```shell 
 git clone https://github.com/rsmmr/git-notifier  
 cd public_html  
 git init  
-echo &#8216;*.jpg  
+echo '*.jpg  
 *.jpeg  
 *.gif  
 *.png  
@@ -62,12 +62,12 @@ echo &#8216;*.jpg
 .git-notifier.dat.bak  
 git-notifier.log  
 wp-content/cache/  
-&#8216; > .gitignore  
+' > .gitignore  
 git config hooks.mailinglist your@mail  
 ln -s $HOME/git-notifier/git-notifier .git/hooks/post-commit
 
 crontab -l > tmp.cron  
-echo &#8216;0 \* \* \* \* cd $HOME/public_html ; git add . && git commit -am &#8220;$(date +\%Y-\%m-\%d@\%H:\%M)&#8221; > /dev/null&#8217; >> tmp.cron  
+echo '0 \* \* \* \* cd $HOME/public_html ; git add . && git commit -am "$(date +\%Y-\%m-\%d@\%H:\%M)" > /dev/null' >> tmp.cron  
 crontab tmp.cron  
 rm -rf tmp.cron  
-[/bash]
+```

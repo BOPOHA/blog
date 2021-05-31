@@ -7,7 +7,7 @@ categories:
 
 ---
 Install:  
-[code]  
+```shell  
 cd ~/public_html  
 git clone https://gerrit.wikimedia.org/r/mediawiki/core.git .  
 git clone https://gerrit.wikimedia.org/r/mediawiki/vendor.git  
@@ -17,15 +17,15 @@ git clone https://gerrit.wikimedia.org/r/mediawiki/skins/Modern
 git clone https://gerrit.wikimedia.org/r/mediawiki/skins/MonoBook￼￼  
 git clone https://gerrit.wikimedia.org/r/mediawiki/skins/VectorV2  
 git clone https://gerrit.wikimedia.org/r/mediawiki/skins/Vector  
-[/code]
+```
 
 Update:  
-[code]  
-for i in \`find ~ -type d -name \.git\`; do cd \`dirname $i\` ; git pull ; done  
-[/code]
+```shell  
+for i in `find ~ -type d -name \.git`; do cd `dirname $i` ; git pull ; done  
+```
 
 Example:  
-[code]  
+```shell  
 -sh-4.2$ find . -type d -name \.git  
 ./public_html/skins/CologneBlue/.git  
 ./public_html/skins/Modern/.git  
@@ -34,6 +34,6 @@ Example:
 ./public_html/skins/MonoBook/.git  
 ./public_html/vendor/.git  
 ./public_html/.git  
-[/code]  
+```  
 Upgrade DB:  
-[code]/opt/rh/rh-php72/root/usr/bin/php maintenance/update.php[/code]
+```shell/opt/rh/rh-php72/root/usr/bin/php maintenance/update.php```
