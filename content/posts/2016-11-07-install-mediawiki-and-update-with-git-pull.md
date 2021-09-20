@@ -37,3 +37,6 @@ Example:
 ```  
 Upgrade DB:  
 ```shell/opt/rh/rh-php72/root/usr/bin/php maintenance/update.php```
+
+
+test tst 22 
