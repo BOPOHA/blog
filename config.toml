@@ -1,7 +1,7 @@
 baseURL = "https://blog.vorona.me/"
 languageCode = "en-us"
-title = "blog vorona me"
-theme = "hugo-swift-theme"
+title = "No.Try not. Do… or do not. There is no try."
+theme = "cactus"
 author = "Anatolii Vorona"
 copyright = "Copyright © 2020–2022, Anatolii Vorona; all rights reserved."
 canonifyurls = true
@@ -9,17 +9,41 @@ paginate = 4
 enableRobotsTXT = true
 
 [params]
-  ga_analytics = "UA-70800220-1"
-  [params.designer]
-    name = "Weru"
-    url = "https://www.linkedin.com/in/dan-weru-profile/"
-  [[params.authors]]
-    name = "author"
-    fullName = "Anatolii Vorona"
-    bio = "It's time to flex. Write a short or not-so-short summary about yourself."
-    url = "https://vorona.me"
 
-[permalinks]
-  blog = "/:filename/"
+    description = "Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."
+    mainSection = "posts"
+    postsOnHomePage = 8
+    googleAnalytics = "UA-70800220-1"
+    rss = true
 
+    [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
 
+    [[menu.main]]
+    name = "All posts"
+    url = "/posts/"
+    weight = 2
+
+    [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+#     [[menu.main]]
+#     name = "About"
+#     url = "/about/"
+#     weight = 4
+
+    [[params.social]]
+      name = "github"
+      link = "https://github.com/BOPOHA/"
+
+    [[params.social]]
+      name = "email"
+      link = "blog@vorona.me"
+
+#     [[params.social]]
+#       name = "linkedin"
+#       link = "https://www.linkedin.com/in/.../"
