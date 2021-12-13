@@ -6,6 +6,7 @@ author = "Anatolii Vorona"
 copyright = "Copyright © 2020–2022, Anatolii Vorona; all rights reserved."
 canonifyurls = true
 paginate = 4
+enableRobotsTXT = true
 
 [params]
   ga_analytics = "UA-70800220-1"
