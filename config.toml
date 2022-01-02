@@ -14,6 +14,7 @@ enableRobotsTXT = true
     mainSection = "posts"
     postsOnHomePage = 8
     googleAnalytics = "UA-70800220-1"
+    ga_analytics = "UA-70800220-1"
     googleAnalyticsAsync = true
     rss = true
 
