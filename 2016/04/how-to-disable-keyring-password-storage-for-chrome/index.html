@@ -6,8 +6,7 @@
 <link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title> How to disable keyring password storage for chrome | No.Try not. Do… or do not. There is no try.</title>
-<link rel=canonical href=https://blog.vorona.me/2016/04/how-to-disable-keyring-password-storage-for-chrome/>
+<title> How to disable keyring password storage for chrome | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/04/how-to-disable-keyring-password-storage-for-chrome/>
 <meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="all,follow">
@@ -23,47 +22,37 @@
 <meta name=twitter:description content="orig_desktop=/usr/share/applications/google-chrome.desktop new_desktop=&#34;$HOME/.local/share/applications/google-chrome.desktop&#34; cat &#34;${orig_desktop}&#34; | sed &#34;s|google-chrome-stable|google-chrome-stable --password-store=basic --ssl-version-min=tls1.2|&#34; > &#34;${new_desktop}&#34; ">
 <link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q==">
 <link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-70800220-1','auto'),ga('send','pageview'))</script>
-</head>
-<body class="max-width mx-auto px3 ltr">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script>
+</head><body class="max-width mx-auto px3 ltr">
 <div class="content index py4">
 <div id=header-post>
 <a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
-<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
 <span id=menu>
 <span id=nav>
 <ul>
-<li><a href=https://blog.vorona.me/>Home</a></li>
-<li><a href=https://blog.vorona.me/posts/>All posts</a></li>
-<li><a href=https://blog.vorona.me/tags/>Tags</a></li>
-</ul>
-</span>
+<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span>
 <br>
 <span id=actions>
 <ul>
 <li>
 <a class=icon href=https://blog.vorona.me/2016/04/1st-new-post/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href=https://blog.vorona.me/2016/04/wp-monitoring/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
+<i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i>
 </a>
-</li>
-<li>
-<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
+</li><li>
+<a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i>
 </a>
-</li>
-</ul>
-<span id=i-prev class=info style=display:none>Previous post</span>
+</li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
 <span id=i-share class=info style=display:none>Share post</span>
@@ -75,166 +64,113 @@
 <a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f" aria-label=Facebook>
 <i class="fab fa-facebook" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&text=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Twitter>
 <i class="fab fa-twitter" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Linkedin>
 <i class="fab fa-linkedin" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&is_video=false&description=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Pinterest>
 <i class="fab fa-pinterest" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="mailto:?subject=How%20to%20disable%20keyring%20password%20storage%20for%20chrome&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f" aria-label=Email>
 <i class="fas fa-envelope" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Pocket>
 <i class="fab fa-get-pocket" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=reddit>
 <i class="fab fa-reddit" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&name=How%20to%20disable%20keyring%20password%20storage%20for%20chrome&description=orig_desktop%3d%2fusr%2fshare%2fapplications%2fgoogle-chrome.desktop%20new_desktop%3d%26%2334%3b%24HOME%2f.local%2fshare%2fapplications%2fgoogle-chrome.desktop%26%2334%3b%20cat%20%26%2334%3b%24%7borig_desktop%7d%26%2334%3b%20%7c%20sed%20%26%2334%3bs%7cgoogle-chrome-stable%7cgoogle-chrome-stable%20--password-store%3dbasic%20--ssl-version-min%3dtls1.2%7c%26%2334%3b%20%26gt%3b%20%26%2334%3b%24%7bnew_desktop%7d%26%2334%3b%20" aria-label=Tumblr>
 <i class="fab fa-tumblr" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&t=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label="Hacker News">
 <i class="fab fa-hacker-news" aria-hidden=true></i>
 </a>
-</li>
-</ul>
-</div>
-<div id=toc>
-<nav id=TableOfContents></nav>
-</div>
-</span>
-</div>
-<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+</li></ul></div><div id=toc>
+<nav id=TableOfContents></nav></div></span>
+</div><article class=post itemscope itemtype=http://schema.org/BlogPosting>
 <header>
 <h1 class=posttitle itemprop="name headline">
 How to disable keyring password storage for chrome
-</h1>
-<div class=meta>
+</h1><div class=meta>
 <div class=postdate>
 <time datetime="2016-04-29 00:38:55 +0000 UTC" itemprop=datePublished>2016-04-29</time>
-</div>
-<div class=article-category>
+</div><div class=article-category>
 <i class="fas fa-archive"></i>
 <a class=category-link href=https://blog.vorona.me/categories/linux>Linux</a>
-</div>
-</div>
-</header>
-<div class=content itemprop=articleBody>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>orig_desktop<span style=color:#f92672>=</span>/usr/share/applications/google-chrome.desktop
-new_desktop<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/.local/share/applications/google-chrome.desktop&#34;</span> 
-cat <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>orig_desktop<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> | sed <span style=color:#e6db74>&#34;s|google-chrome-stable|google-chrome-stable --password-store=basic --ssl-version-min=tls1.2|&#34;</span> &gt; <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>new_desktop<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-</code></pre></div>
-</div>
-</article>
-<div id=footer-post-container>
+</div></div></header><div class=content itemprop=articleBody>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>orig_desktop<span style=color:#f92672>=</span>/usr/share/applications/google-chrome.desktop
+</span></span><span style=display:flex><span>new_desktop<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/.local/share/applications/google-chrome.desktop&#34;</span> 
+</span></span><span style=display:flex><span>cat <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>orig_desktop<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> | sed <span style=color:#e6db74>&#34;s|google-chrome-stable|google-chrome-stable --password-store=basic --ssl-version-min=tls1.2|&#34;</span> &gt; <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>new_desktop<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span></code></pre></div></div></article><div id=footer-post-container>
 <div id=footer-post>
 <div id=nav-footer style=display:none>
 <ul>
-<li><a href=https://blog.vorona.me/>Home</a></li>
-<li><a href=https://blog.vorona.me/posts/>All posts</a></li>
-<li><a href=https://blog.vorona.me/tags/>Tags</a></li>
-</ul>
-</div>
-<div id=toc-footer style=display:none>
-<nav id=TableOfContents></nav>
-</div>
-<div id=share-footer style=display:none>
+<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none>
+<nav id=TableOfContents></nav></div><div id=share-footer style=display:none>
 <ul>
 <li>
 <a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f" aria-label=Facebook>
 <i class="fab fa-facebook fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&text=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Twitter>
 <i class="fab fa-twitter fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Linkedin>
 <i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&is_video=false&description=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Pinterest>
 <i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="mailto:?subject=How%20to%20disable%20keyring%20password%20storage%20for%20chrome&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f" aria-label=Email>
 <i class="fas fa-envelope fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=Pocket>
 <i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&title=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label=reddit>
 <i class="fab fa-reddit fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&name=How%20to%20disable%20keyring%20password%20storage%20for%20chrome&description=orig_desktop%3d%2fusr%2fshare%2fapplications%2fgoogle-chrome.desktop%20new_desktop%3d%26%2334%3b%24HOME%2f.local%2fshare%2fapplications%2fgoogle-chrome.desktop%26%2334%3b%20cat%20%26%2334%3b%24%7borig_desktop%7d%26%2334%3b%20%7c%20sed%20%26%2334%3bs%7cgoogle-chrome-stable%7cgoogle-chrome-stable%20--password-store%3dbasic%20--ssl-version-min%3dtls1.2%7c%26%2334%3b%20%26gt%3b%20%26%2334%3b%24%7bnew_desktop%7d%26%2334%3b%20" aria-label=Tumblr>
 <i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
 </a>
-</li>
-<li>
+</li><li>
 <a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f04%2fhow-to-disable-keyring-password-storage-for-chrome%2f&t=How%20to%20disable%20keyring%20password%20storage%20for%20chrome" aria-label="Hacker News">
 <i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
 </a>
-</li>
-</ul>
-</div>
-<div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
+</li></ul></div><div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu>
 <i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC>
 <i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share>
 <i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
 <i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div>
-</div>
-</div>
-<footer id=footer>
+</div></div></div><footer id=footer>
 <div class=footer-left>
 Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.
-</div>
-<div class=footer-right>
+</div><div class=footer-right>
 <nav>
 <ul>
-<li><a href=https://blog.vorona.me/>Home</a></li>
-<li><a href=https://blog.vorona.me/posts/>All posts</a></li>
-<li><a href=https://blog.vorona.me/tags/>Tags</a></li>
-</ul>
-</nav>
-</div>
-</footer>
-</div>
-</body>
-<link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css>
+<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css>
 <script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
 <script src=https://blog.vorona.me/js/main.js></script>
 <script src=https://blog.vorona.me/js/code-copy.js></script>
