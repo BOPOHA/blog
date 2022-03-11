@@ -1,124 +1,19 @@
-<!doctype html><html lang=en-us>
-<head>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title> F25.install | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/06/f24-install/>
-<meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="all,follow">
-<meta name=googlebot content="index,follow,snippet,archive">
-<meta property="og:title" content="F25.install">
-<meta property="og:description" content="Updated for F25.
+<!doctype html><html lang=en-us><head><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>F25.install | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/06/f24-install/><meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="F25.install"><meta property="og:description" content="Updated for F25.
 Repos:
 cat << EOF > /etc/yum.repos.d/google-chrome.repo [google-chrome] name=google-chrome - \$basearch baseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch enabled=1 gpgcheck=1 gpgkey=https://dl-ssl.google.com/linux/linux\_signing\_key.pub EOF  dnf copr enable vorona/pidgin-xmpp-receipts dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm -y dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm -y dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm -y Pkgs:
-dnf install google-chrome-stable -y dnf install pidgin-xmpp-receipts -y dnf install purple-skypeweb viber -y  dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen \  pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \  thunderbird pidgin-xmpp-receipts pidgin-otr freerdp shutter vnc lm_sensors \  rdesktop firefox fping ipmitool nmap filezilla remmina remmina-plugins* -y  dnf install geany-plugins-addons geany-themes geany-plugins-codenav geany-plugins-automark \  geany-plugins-markdown geany-plugins-overview geany-plugins-autoclose -y  dnf install icedtea-web -y dnf install virt-manager -y usermod -G kvm -a USERNAME usermod -G libvirt -a USERNAME  dnf install u2f-hidraw-policy -y dnf install docker-compose docker -y groupadd docker usermod -aG docker USERNAME systemctl enable docker systemctl start docker Tuning:">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.vorona.me/2016/06/f24-install/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2016-06-25T08:12:29+00:00">
-<meta property="article:modified_time" content="2016-06-25T08:12:29+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="F25.install">
-<meta name=twitter:description content="Updated for F25.
+dnf install google-chrome-stable -y dnf install pidgin-xmpp-receipts -y dnf install purple-skypeweb viber -y  dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen \  pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \  thunderbird pidgin-xmpp-receipts pidgin-otr freerdp shutter vnc lm_sensors \  rdesktop firefox fping ipmitool nmap filezilla remmina remmina-plugins* -y  dnf install geany-plugins-addons geany-themes geany-plugins-codenav geany-plugins-automark \  geany-plugins-markdown geany-plugins-overview geany-plugins-autoclose -y  dnf install icedtea-web -y dnf install virt-manager -y usermod -G kvm -a USERNAME usermod -G libvirt -a USERNAME  dnf install u2f-hidraw-policy -y dnf install docker-compose docker -y groupadd docker usermod -aG docker USERNAME systemctl enable docker systemctl start docker Tuning:"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.vorona.me/2016/06/f24-install/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-06-25T08:12:29+00:00"><meta property="article:modified_time" content="2016-06-25T08:12:29+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="F25.install"><meta name=twitter:description content="Updated for F25.
 Repos:
 cat << EOF > /etc/yum.repos.d/google-chrome.repo [google-chrome] name=google-chrome - \$basearch baseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch enabled=1 gpgcheck=1 gpgkey=https://dl-ssl.google.com/linux/linux\_signing\_key.pub EOF  dnf copr enable vorona/pidgin-xmpp-receipts dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm -y dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm -y dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm -y Pkgs:
-dnf install google-chrome-stable -y dnf install pidgin-xmpp-receipts -y dnf install purple-skypeweb viber -y  dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen \  pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \  thunderbird pidgin-xmpp-receipts pidgin-otr freerdp shutter vnc lm_sensors \  rdesktop firefox fping ipmitool nmap filezilla remmina remmina-plugins* -y  dnf install geany-plugins-addons geany-themes geany-plugins-codenav geany-plugins-automark \  geany-plugins-markdown geany-plugins-overview geany-plugins-autoclose -y  dnf install icedtea-web -y dnf install virt-manager -y usermod -G kvm -a USERNAME usermod -G libvirt -a USERNAME  dnf install u2f-hidraw-policy -y dnf install docker-compose docker -y groupadd docker usermod -aG docker USERNAME systemctl enable docker systemctl start docker Tuning:">
-<link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q==">
-<link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script>
-</head><body class="max-width mx-auto px3 ltr">
-<div class="content index py4">
-<div id=header-post>
-<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+dnf install google-chrome-stable -y dnf install pidgin-xmpp-receipts -y dnf install purple-skypeweb viber -y  dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen \  pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils \  thunderbird pidgin-xmpp-receipts pidgin-otr freerdp shutter vnc lm_sensors \  rdesktop firefox fping ipmitool nmap filezilla remmina remmina-plugins* -y  dnf install geany-plugins-addons geany-themes geany-plugins-codenav geany-plugins-automark \  geany-plugins-markdown geany-plugins-overview geany-plugins-autoclose -y  dnf install icedtea-web -y dnf install virt-manager -y usermod -G kvm -a USERNAME usermod -G libvirt -a USERNAME  dnf install u2f-hidraw-policy -y dnf install docker-compose docker -y groupadd docker usermod -aG docker USERNAME systemctl enable docker systemctl start docker Tuning:"><link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu>
-<span id=nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span>
-<br>
-<span id=actions>
-<ul>
-<li>
-<a class=icon href=https://blog.vorona.me/2016/04/ze551ml-flash-firmware/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=https://blog.vorona.me/2016/07/php-antivirus-website-check/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i>
-</a>
-</li></ul><span id=i-prev class=info style=display:none>Previous post</span>
+<span id=menu><span id=nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://blog.vorona.me/2016/04/ze551ml-flash-firmware/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://blog.vorona.me/2016/07/php-antivirus-website-check/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span>
-</span>
-<br>
-<div id=share style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Facebook>
-<i class="fab fa-facebook" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&text=F25.install" aria-label=Twitter>
-<i class="fab fa-twitter" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Linkedin>
-<i class="fab fa-linkedin" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&is_video=false&description=F25.install" aria-label=Pinterest>
-<i class="fab fa-pinterest" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=F25.install&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Email>
-<i class="fas fa-envelope" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Pocket>
-<i class="fab fa-get-pocket" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=reddit>
-<i class="fab fa-reddit" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&name=F25.install&description=Updated%20for%20F25.%0aRepos%3a%0acat%20%26lt%3b%26lt%3b%20EOF%20%26gt%3b%20%2fetc%2fyum.repos.d%2fgoogle-chrome.repo%20%5bgoogle-chrome%5d%20name%3dgoogle-chrome%20-%20%5c%24basearch%20baseurl%3dhttp%3a%2f%2fdl.google.com%2flinux%2fchrome%2frpm%2fstable%2f%5c%24basearch%20enabled%3d1%20gpgcheck%3d1%20gpgkey%3dhttps%3a%2f%2fdl-ssl.google.com%2flinux%2flinux%5c_signing%5c_key.pub%20EOF%20%20dnf%20copr%20enable%20vorona%2fpidgin-xmpp-receipts%20dnf%20install%20http%3a%2f%2fdownload1.rpmfusion.org%2ffree%2ffedora%2frpmfusion-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2ffree%2ffedora%2frussianfedora-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2fnonfree%2ffedora%2frussianfedora-nonfree-release-stable.noarch.rpm%20-y%20Pkgs%3a%0adnf%20install%20google-chrome-stable%20-y%20dnf%20install%20pidgin-xmpp-receipts%20-y%20dnf%20install%20purple-skypeweb%20viber%20-y%20%20dnf%20install%20openssh-askpass%20vim%20htop%20atop%20mc%20screen%20keychain%20p7zip%20curl%20vim%20shutter%20sysfsutils%20pwgen%20%5c%20%20pidgin%20dmidecode%20git%20mercurial%20python-xmpp%20python-beautifulsoup4%20libnotify%20alsa-utils%20%5c%20%20thunderbird%20pidgin-xmpp-receipts%20pidgin-otr%20freerdp%20shutter%20vnc%20lm_sensors%20%5c%20%20rdesktop%20firefox%20fping%20ipmitool%20nmap%20filezilla%20remmina%20remmina-plugins%2a%20-y%20%20dnf%20install%20geany-plugins-addons%20geany-themes%20geany-plugins-codenav%20geany-plugins-automark%20%5c%20%20geany-plugins-markdown%20geany-plugins-overview%20geany-plugins-autoclose%20-y%20%20dnf%20install%20icedtea-web%20-y%20dnf%20install%20virt-manager%20-y%20usermod%20-G%20kvm%20-a%20USERNAME%20usermod%20-G%20libvirt%20-a%20USERNAME%20%20dnf%20install%20u2f-hidraw-policy%20-y%20dnf%20install%20docker-compose%20docker%20-y%20groupadd%20docker%20usermod%20-aG%20docker%20USERNAME%20systemctl%20enable%20docker%20systemctl%20start%20docker%20Tuning%3a" aria-label=Tumblr>
-<i class="fab fa-tumblr" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&t=F25.install" aria-label="Hacker News">
-<i class="fab fa-hacker-news" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=toc>
-<nav id=TableOfContents></nav></div></span>
-</div><article class=post itemscope itemtype=http://schema.org/BlogPosting>
-<header>
-<h1 class=posttitle itemprop="name headline">
-F25.install
-</h1><div class=meta>
-<div class=postdate>
-<time datetime="2016-06-25 08:12:29 +0000 UTC" itemprop=datePublished>2016-06-25</time>
-</div><div class=article-category>
-<i class="fas fa-archive"></i>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&text=F25.install" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&is_video=false&description=F25.install" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=F25.install&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&name=F25.install&description=Updated%20for%20F25.%0aRepos%3a%0acat%20%26lt%3b%26lt%3b%20EOF%20%26gt%3b%20%2fetc%2fyum.repos.d%2fgoogle-chrome.repo%20%5bgoogle-chrome%5d%20name%3dgoogle-chrome%20-%20%5c%24basearch%20baseurl%3dhttp%3a%2f%2fdl.google.com%2flinux%2fchrome%2frpm%2fstable%2f%5c%24basearch%20enabled%3d1%20gpgcheck%3d1%20gpgkey%3dhttps%3a%2f%2fdl-ssl.google.com%2flinux%2flinux%5c_signing%5c_key.pub%20EOF%20%20dnf%20copr%20enable%20vorona%2fpidgin-xmpp-receipts%20dnf%20install%20http%3a%2f%2fdownload1.rpmfusion.org%2ffree%2ffedora%2frpmfusion-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2ffree%2ffedora%2frussianfedora-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2fnonfree%2ffedora%2frussianfedora-nonfree-release-stable.noarch.rpm%20-y%20Pkgs%3a%0adnf%20install%20google-chrome-stable%20-y%20dnf%20install%20pidgin-xmpp-receipts%20-y%20dnf%20install%20purple-skypeweb%20viber%20-y%20%20dnf%20install%20openssh-askpass%20vim%20htop%20atop%20mc%20screen%20keychain%20p7zip%20curl%20vim%20shutter%20sysfsutils%20pwgen%20%5c%20%20pidgin%20dmidecode%20git%20mercurial%20python-xmpp%20python-beautifulsoup4%20libnotify%20alsa-utils%20%5c%20%20thunderbird%20pidgin-xmpp-receipts%20pidgin-otr%20freerdp%20shutter%20vnc%20lm_sensors%20%5c%20%20rdesktop%20firefox%20fping%20ipmitool%20nmap%20filezilla%20remmina%20remmina-plugins%2a%20-y%20%20dnf%20install%20geany-plugins-addons%20geany-themes%20geany-plugins-codenav%20geany-plugins-automark%20%5c%20%20geany-plugins-markdown%20geany-plugins-overview%20geany-plugins-autoclose%20-y%20%20dnf%20install%20icedtea-web%20-y%20dnf%20install%20virt-manager%20-y%20usermod%20-G%20kvm%20-a%20USERNAME%20usermod%20-G%20libvirt%20-a%20USERNAME%20%20dnf%20install%20u2f-hidraw-policy%20-y%20dnf%20install%20docker-compose%20docker%20-y%20groupadd%20docker%20usermod%20-aG%20docker%20USERNAME%20systemctl%20enable%20docker%20systemctl%20start%20docker%20Tuning%3a" aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&t=F25.install" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">F25.install</h1><div class=meta><div class=postdate><time datetime="2016-06-25 08:12:29 +0000 UTC" itemprop=datePublished>2016-06-25</time></div><div class=article-category><i class="fas fa-archive"></i>
 <a class=category-link href=https://blog.vorona.me/categories/linux>Linux</a>
 ,
-<a class=category-link href=https://blog.vorona.me/categories/uncategorized>Uncategorized</a>
-</div></div></header><div class=content itemprop=articleBody>
-<p>Updated for F25.<br>
-Repos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt; EOF &gt; /etc/yum.repos.d/google-chrome.repo  
+<a class=category-link href=https://blog.vorona.me/categories/uncategorized>Uncategorized</a></div></div></header><div class=content itemprop=articleBody><p>Updated for F25.<br>Repos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt; EOF &gt; /etc/yum.repos.d/google-chrome.repo  
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>[google-chrome]  
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>name=google-chrome - \$basearch  
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>baseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch  
@@ -159,66 +54,9 @@ Repos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-co
 </span></span><span style=display:flex><span><span style=color:#75715e># Since f25 it&#39;s default values.</span>
 </span></span></code></pre></div><p>PyCharm:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>dnf copr enable phracek/PyCharm  
 </span></span><span style=display:flex><span>dnf install pycharm-community-plugins -y
-</span></span></code></pre></div></div></article><div id=footer-post-container>
-<div id=footer-post>
-<div id=nav-footer style=display:none>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none>
-<nav id=TableOfContents></nav></div><div id=share-footer style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Facebook>
-<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&text=F25.install" aria-label=Twitter>
-<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Linkedin>
-<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&is_video=false&description=F25.install" aria-label=Pinterest>
-<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=F25.install&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Email>
-<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Pocket>
-<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=reddit>
-<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&name=F25.install&description=Updated%20for%20F25.%0aRepos%3a%0acat%20%26lt%3b%26lt%3b%20EOF%20%26gt%3b%20%2fetc%2fyum.repos.d%2fgoogle-chrome.repo%20%5bgoogle-chrome%5d%20name%3dgoogle-chrome%20-%20%5c%24basearch%20baseurl%3dhttp%3a%2f%2fdl.google.com%2flinux%2fchrome%2frpm%2fstable%2f%5c%24basearch%20enabled%3d1%20gpgcheck%3d1%20gpgkey%3dhttps%3a%2f%2fdl-ssl.google.com%2flinux%2flinux%5c_signing%5c_key.pub%20EOF%20%20dnf%20copr%20enable%20vorona%2fpidgin-xmpp-receipts%20dnf%20install%20http%3a%2f%2fdownload1.rpmfusion.org%2ffree%2ffedora%2frpmfusion-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2ffree%2ffedora%2frussianfedora-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2fnonfree%2ffedora%2frussianfedora-nonfree-release-stable.noarch.rpm%20-y%20Pkgs%3a%0adnf%20install%20google-chrome-stable%20-y%20dnf%20install%20pidgin-xmpp-receipts%20-y%20dnf%20install%20purple-skypeweb%20viber%20-y%20%20dnf%20install%20openssh-askpass%20vim%20htop%20atop%20mc%20screen%20keychain%20p7zip%20curl%20vim%20shutter%20sysfsutils%20pwgen%20%5c%20%20pidgin%20dmidecode%20git%20mercurial%20python-xmpp%20python-beautifulsoup4%20libnotify%20alsa-utils%20%5c%20%20thunderbird%20pidgin-xmpp-receipts%20pidgin-otr%20freerdp%20shutter%20vnc%20lm_sensors%20%5c%20%20rdesktop%20firefox%20fping%20ipmitool%20nmap%20filezilla%20remmina%20remmina-plugins%2a%20-y%20%20dnf%20install%20geany-plugins-addons%20geany-themes%20geany-plugins-codenav%20geany-plugins-automark%20%5c%20%20geany-plugins-markdown%20geany-plugins-overview%20geany-plugins-autoclose%20-y%20%20dnf%20install%20icedtea-web%20-y%20dnf%20install%20virt-manager%20-y%20usermod%20-G%20kvm%20-a%20USERNAME%20usermod%20-G%20libvirt%20-a%20USERNAME%20%20dnf%20install%20u2f-hidraw-policy%20-y%20dnf%20install%20docker-compose%20docker%20-y%20groupadd%20docker%20usermod%20-aG%20docker%20USERNAME%20systemctl%20enable%20docker%20systemctl%20start%20docker%20Tuning%3a" aria-label=Tumblr>
-<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&t=F25.install" aria-label="Hacker News">
-<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu>
-<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC>
-<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share>
-<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div></div></div><footer id=footer>
-<div class=footer-left>
-Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.
-</div><div class=footer-right>
-<nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css>
-<script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
+</span></span></code></pre></div></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&text=F25.install" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&is_video=false&description=F25.install" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=F25.install&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&title=F25.install" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&name=F25.install&description=Updated%20for%20F25.%0aRepos%3a%0acat%20%26lt%3b%26lt%3b%20EOF%20%26gt%3b%20%2fetc%2fyum.repos.d%2fgoogle-chrome.repo%20%5bgoogle-chrome%5d%20name%3dgoogle-chrome%20-%20%5c%24basearch%20baseurl%3dhttp%3a%2f%2fdl.google.com%2flinux%2fchrome%2frpm%2fstable%2f%5c%24basearch%20enabled%3d1%20gpgcheck%3d1%20gpgkey%3dhttps%3a%2f%2fdl-ssl.google.com%2flinux%2flinux%5c_signing%5c_key.pub%20EOF%20%20dnf%20copr%20enable%20vorona%2fpidgin-xmpp-receipts%20dnf%20install%20http%3a%2f%2fdownload1.rpmfusion.org%2ffree%2ffedora%2frpmfusion-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2ffree%2ffedora%2frussianfedora-free-release-stable.noarch.rpm%20-y%20dnf%20install%20http%3a%2f%2fmirror.yandex.ru%2ffedora%2frussianfedora%2frussianfedora%2fnonfree%2ffedora%2frussianfedora-nonfree-release-stable.noarch.rpm%20-y%20Pkgs%3a%0adnf%20install%20google-chrome-stable%20-y%20dnf%20install%20pidgin-xmpp-receipts%20-y%20dnf%20install%20purple-skypeweb%20viber%20-y%20%20dnf%20install%20openssh-askpass%20vim%20htop%20atop%20mc%20screen%20keychain%20p7zip%20curl%20vim%20shutter%20sysfsutils%20pwgen%20%5c%20%20pidgin%20dmidecode%20git%20mercurial%20python-xmpp%20python-beautifulsoup4%20libnotify%20alsa-utils%20%5c%20%20thunderbird%20pidgin-xmpp-receipts%20pidgin-otr%20freerdp%20shutter%20vnc%20lm_sensors%20%5c%20%20rdesktop%20firefox%20fping%20ipmitool%20nmap%20filezilla%20remmina%20remmina-plugins%2a%20-y%20%20dnf%20install%20geany-plugins-addons%20geany-themes%20geany-plugins-codenav%20geany-plugins-automark%20%5c%20%20geany-plugins-markdown%20geany-plugins-overview%20geany-plugins-autoclose%20-y%20%20dnf%20install%20icedtea-web%20-y%20dnf%20install%20virt-manager%20-y%20usermod%20-G%20kvm%20-a%20USERNAME%20usermod%20-G%20libvirt%20-a%20USERNAME%20%20dnf%20install%20u2f-hidraw-policy%20-y%20dnf%20install%20docker-compose%20docker%20-y%20groupadd%20docker%20usermod%20-aG%20docker%20USERNAME%20systemctl%20enable%20docker%20systemctl%20start%20docker%20Tuning%3a" aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f06%2ff24-install%2f&t=F25.install" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</div><div class=footer-right><nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css><script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
 <script src=https://blog.vorona.me/js/main.js></script>
-<script src=https://blog.vorona.me/js/code-copy.js></script>
-</html>
+<script src=https://blog.vorona.me/js/code-copy.js></script></html>

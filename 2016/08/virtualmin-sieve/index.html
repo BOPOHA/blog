@@ -1,124 +1,18 @@
-<!doctype html><html lang=en-us>
-<head>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title> virtualmin: sieve | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/08/virtualmin-sieve/>
-<meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="all,follow">
-<meta name=googlebot content="index,follow,snippet,archive">
-<meta property="og:title" content="virtualmin: sieve">
-<meta property="og:description" content="yum install dovecot-pigeonhole -y  cp -a /etc/procmailrc{,.orig}  echo ' DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &#34;$EXITCODE&#34; = &#34;73&#34; /dev/null EXITCODE=0 :0 * ?/bin/test &#34;$VIRTUALMIN&#34; != &#34;&#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT ' > /etc/procmailrc  sed -i &#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&#34; /etc/dovecot/conf.d/15-lda.conf  sed -i &#34;s|^protocols =.*$|protocols = imap sieve|&#34; /etc/dovecot/dovecot.conf  echo ' service managesieve-login { inet_listener sieve { port = 4190 } } ' >> /etc/dovecot/conf.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.vorona.me/2016/08/virtualmin-sieve/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2016-08-25T07:59:56+00:00">
-<meta property="article:modified_time" content="2016-08-25T07:59:56+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="virtualmin: sieve">
-<meta name=twitter:description content="yum install dovecot-pigeonhole -y  cp -a /etc/procmailrc{,.orig}  echo ' DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &#34;$EXITCODE&#34; = &#34;73&#34; /dev/null EXITCODE=0 :0 * ?/bin/test &#34;$VIRTUALMIN&#34; != &#34;&#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT ' > /etc/procmailrc  sed -i &#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&#34; /etc/dovecot/conf.d/15-lda.conf  sed -i &#34;s|^protocols =.*$|protocols = imap sieve|&#34; /etc/dovecot/dovecot.conf  echo ' service managesieve-login { inet_listener sieve { port = 4190 } } ' >> /etc/dovecot/conf.">
-<link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q==">
-<link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script>
-</head><body class="max-width mx-auto px3 ltr">
-<div class="content index py4">
-<div id=header-post>
-<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<!doctype html><html lang=en-us><head><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>virtualmin: sieve | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/08/virtualmin-sieve/><meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="virtualmin: sieve"><meta property="og:description" content="yum install dovecot-pigeonhole -y  cp -a /etc/procmailrc{,.orig}  echo ' DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &#34;$EXITCODE&#34; = &#34;73&#34; /dev/null EXITCODE=0 :0 * ?/bin/test &#34;$VIRTUALMIN&#34; != &#34;&#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT ' > /etc/procmailrc  sed -i &#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&#34; /etc/dovecot/conf.d/15-lda.conf  sed -i &#34;s|^protocols =.*$|protocols = imap sieve|&#34; /etc/dovecot/dovecot.conf  echo ' service managesieve-login { inet_listener sieve { port = 4190 } } ' >> /etc/dovecot/conf."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.vorona.me/2016/08/virtualmin-sieve/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-08-25T07:59:56+00:00"><meta property="article:modified_time" content="2016-08-25T07:59:56+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="virtualmin: sieve"><meta name=twitter:description content="yum install dovecot-pigeonhole -y  cp -a /etc/procmailrc{,.orig}  echo ' DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &#34;$EXITCODE&#34; = &#34;73&#34; /dev/null EXITCODE=0 :0 * ?/bin/test &#34;$VIRTUALMIN&#34; != &#34;&#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT ' > /etc/procmailrc  sed -i &#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&#34; /etc/dovecot/conf.d/15-lda.conf  sed -i &#34;s|^protocols =.*$|protocols = imap sieve|&#34; /etc/dovecot/dovecot.conf  echo ' service managesieve-login { inet_listener sieve { port = 4190 } } ' >> /etc/dovecot/conf."><link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu>
-<span id=nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span>
-<br>
-<span id=actions>
-<ul>
-<li>
-<a class=icon href=https://blog.vorona.me/2016/07/virsh-port-forwarding/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i>
-</a>
-</li></ul><span id=i-prev class=info style=display:none>Previous post</span>
+<span id=menu><span id=nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://blog.vorona.me/2016/07/virsh-port-forwarding/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span>
-</span>
-<br>
-<div id=share style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Facebook>
-<i class="fab fa-facebook" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&text=virtualmin%3a%20sieve" aria-label=Twitter>
-<i class="fab fa-twitter" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Linkedin>
-<i class="fab fa-linkedin" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&is_video=false&description=virtualmin%3a%20sieve" aria-label=Pinterest>
-<i class="fab fa-pinterest" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=virtualmin%3a%20sieve&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Email>
-<i class="fas fa-envelope" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Pocket>
-<i class="fab fa-get-pocket" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=reddit>
-<i class="fab fa-reddit" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&name=virtualmin%3a%20sieve&description=yum%20install%20dovecot-pigeonhole%20-y%20%20cp%20-a%20%2fetc%2fprocmailrc%7b%2c.orig%7d%20%20echo%20%26%2339%3b%20DELIVER%3d%2fusr%2flibexec%2fdovecot%2fdeliver%20LOGFILE%3d%2fvar%2flog%2fprocmail.log%20TRAP%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail-logger.pl%20%3a0wi%20VIRTUALMIN%3d%7c%2fetc%2fwebmin%2fvirtual-server%2flookup-domain.pl%20%24LOGNAME%20EXITCODE%3d%24%3f%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24EXITCODE%26%2334%3b%20%3d%20%26%2334%3b73%26%2334%3b%20%2fdev%2fnull%20EXITCODE%3d0%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24VIRTUALMIN%26%2334%3b%20%21%3d%20%26%2334%3b%26%2334%3b%20%7b%20INCLUDERC%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail%2f%24VIRTUALMIN%20%7d%20DEFAULT%3d%24HOME%2fMaildir%2f%20ORGMAIL%3d%24HOME%2fMaildir%2f%20DROPPRIVS%3dyes%20%3a0w%20%7c%20%24DELIVER%20%3a0%20%24DEFAULT%20%26%2339%3b%20%26gt%3b%20%2fetc%2fprocmailrc%20%20sed%20-i%20%26%2334%3bs%7cprotocol%20lda%20%7b%7cprotocol%20lda%20%7b%5cn%20mail%5c_plugins%20%3d%20%5c%24mail%5c_plugins%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fconf.d%2f15-lda.conf%20%20sed%20-i%20%26%2334%3bs%7c%5eprotocols%20%3d.%2a%24%7cprotocols%20%3d%20imap%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fdovecot.conf%20%20echo%20%26%2339%3b%20service%20managesieve-login%20%7b%20inet_listener%20sieve%20%7b%20port%20%3d%204190%20%7d%20%7d%20%26%2339%3b%20%26gt%3b%26gt%3b%20%2fetc%2fdovecot%2fconf." aria-label=Tumblr>
-<i class="fab fa-tumblr" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&t=virtualmin%3a%20sieve" aria-label="Hacker News">
-<i class="fab fa-hacker-news" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=toc>
-<nav id=TableOfContents></nav></div></span>
-</div><article class=post itemscope itemtype=http://schema.org/BlogPosting>
-<header>
-<h1 class=posttitle itemprop="name headline">
-virtualmin: sieve
-</h1><div class=meta>
-<div class=postdate>
-<time datetime="2016-08-25 07:59:56 +0000 UTC" itemprop=datePublished>2016-08-25</time>
-</div><div class=article-category>
-<i class="fas fa-archive"></i>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&text=virtualmin%3a%20sieve" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&is_video=false&description=virtualmin%3a%20sieve" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=virtualmin%3a%20sieve&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&name=virtualmin%3a%20sieve&description=yum%20install%20dovecot-pigeonhole%20-y%20%20cp%20-a%20%2fetc%2fprocmailrc%7b%2c.orig%7d%20%20echo%20%26%2339%3b%20DELIVER%3d%2fusr%2flibexec%2fdovecot%2fdeliver%20LOGFILE%3d%2fvar%2flog%2fprocmail.log%20TRAP%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail-logger.pl%20%3a0wi%20VIRTUALMIN%3d%7c%2fetc%2fwebmin%2fvirtual-server%2flookup-domain.pl%20%24LOGNAME%20EXITCODE%3d%24%3f%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24EXITCODE%26%2334%3b%20%3d%20%26%2334%3b73%26%2334%3b%20%2fdev%2fnull%20EXITCODE%3d0%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24VIRTUALMIN%26%2334%3b%20%21%3d%20%26%2334%3b%26%2334%3b%20%7b%20INCLUDERC%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail%2f%24VIRTUALMIN%20%7d%20DEFAULT%3d%24HOME%2fMaildir%2f%20ORGMAIL%3d%24HOME%2fMaildir%2f%20DROPPRIVS%3dyes%20%3a0w%20%7c%20%24DELIVER%20%3a0%20%24DEFAULT%20%26%2339%3b%20%26gt%3b%20%2fetc%2fprocmailrc%20%20sed%20-i%20%26%2334%3bs%7cprotocol%20lda%20%7b%7cprotocol%20lda%20%7b%5cn%20mail%5c_plugins%20%3d%20%5c%24mail%5c_plugins%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fconf.d%2f15-lda.conf%20%20sed%20-i%20%26%2334%3bs%7c%5eprotocols%20%3d.%2a%24%7cprotocols%20%3d%20imap%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fdovecot.conf%20%20echo%20%26%2339%3b%20service%20managesieve-login%20%7b%20inet_listener%20sieve%20%7b%20port%20%3d%204190%20%7d%20%7d%20%26%2339%3b%20%26gt%3b%26gt%3b%20%2fetc%2fdovecot%2fconf." aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&t=virtualmin%3a%20sieve" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">virtualmin: sieve</h1><div class=meta><div class=postdate><time datetime="2016-08-25 07:59:56 +0000 UTC" itemprop=datePublished>2016-08-25</time></div><div class=article-category><i class="fas fa-archive"></i>
 <a class=category-link href=https://blog.vorona.me/categories/linux>Linux</a>
 ,
-<a class=category-link href=https://blog.vorona.me/categories/virtualmin>virtualmin</a>
-</div><div class=article-tag>
-<i class="fas fa-tag"></i>
+<a class=category-link href=https://blog.vorona.me/categories/virtualmin>virtualmin</a></div><div class=article-tag><i class="fas fa-tag"></i>
 <a class=tag-link href=https://blog.vorona.me/tags/centos rel=tag>centos</a>
 ,
 <a class=tag-link href=https://blog.vorona.me/tags/sieve rel=tag>sieve</a>
 ,
-<a class=tag-link href=https://blog.vorona.me/tags/virtualmin rel=tag>virtualmin</a>
-</div></div></header><div class=content itemprop=articleBody>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install dovecot-pigeonhole -y
+<a class=tag-link href=https://blog.vorona.me/tags/virtualmin rel=tag>virtualmin</a></div></div></header><div class=content itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install dovecot-pigeonhole -y
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>cp -a /etc/procmailrc<span style=color:#f92672>{</span>,.orig<span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span>
@@ -159,66 +53,9 @@ virtualmin: sieve
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>} &#39;</span> &gt;&gt; /etc/dovecot/conf.d/20-managesieve.conf
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>service dovecot restart  
-</span></span></code></pre></div></div></article><div id=footer-post-container>
-<div id=footer-post>
-<div id=nav-footer style=display:none>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none>
-<nav id=TableOfContents></nav></div><div id=share-footer style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Facebook>
-<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&text=virtualmin%3a%20sieve" aria-label=Twitter>
-<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Linkedin>
-<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&is_video=false&description=virtualmin%3a%20sieve" aria-label=Pinterest>
-<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=virtualmin%3a%20sieve&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Email>
-<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Pocket>
-<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=reddit>
-<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&name=virtualmin%3a%20sieve&description=yum%20install%20dovecot-pigeonhole%20-y%20%20cp%20-a%20%2fetc%2fprocmailrc%7b%2c.orig%7d%20%20echo%20%26%2339%3b%20DELIVER%3d%2fusr%2flibexec%2fdovecot%2fdeliver%20LOGFILE%3d%2fvar%2flog%2fprocmail.log%20TRAP%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail-logger.pl%20%3a0wi%20VIRTUALMIN%3d%7c%2fetc%2fwebmin%2fvirtual-server%2flookup-domain.pl%20%24LOGNAME%20EXITCODE%3d%24%3f%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24EXITCODE%26%2334%3b%20%3d%20%26%2334%3b73%26%2334%3b%20%2fdev%2fnull%20EXITCODE%3d0%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24VIRTUALMIN%26%2334%3b%20%21%3d%20%26%2334%3b%26%2334%3b%20%7b%20INCLUDERC%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail%2f%24VIRTUALMIN%20%7d%20DEFAULT%3d%24HOME%2fMaildir%2f%20ORGMAIL%3d%24HOME%2fMaildir%2f%20DROPPRIVS%3dyes%20%3a0w%20%7c%20%24DELIVER%20%3a0%20%24DEFAULT%20%26%2339%3b%20%26gt%3b%20%2fetc%2fprocmailrc%20%20sed%20-i%20%26%2334%3bs%7cprotocol%20lda%20%7b%7cprotocol%20lda%20%7b%5cn%20mail%5c_plugins%20%3d%20%5c%24mail%5c_plugins%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fconf.d%2f15-lda.conf%20%20sed%20-i%20%26%2334%3bs%7c%5eprotocols%20%3d.%2a%24%7cprotocols%20%3d%20imap%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fdovecot.conf%20%20echo%20%26%2339%3b%20service%20managesieve-login%20%7b%20inet_listener%20sieve%20%7b%20port%20%3d%204190%20%7d%20%7d%20%26%2339%3b%20%26gt%3b%26gt%3b%20%2fetc%2fdovecot%2fconf." aria-label=Tumblr>
-<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&t=virtualmin%3a%20sieve" aria-label="Hacker News">
-<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu>
-<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC>
-<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share>
-<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div></div></div><footer id=footer>
-<div class=footer-left>
-Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.
-</div><div class=footer-right>
-<nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css>
-<script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
+</span></span></code></pre></div></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&text=virtualmin%3a%20sieve" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&is_video=false&description=virtualmin%3a%20sieve" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=virtualmin%3a%20sieve&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&title=virtualmin%3a%20sieve" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&name=virtualmin%3a%20sieve&description=yum%20install%20dovecot-pigeonhole%20-y%20%20cp%20-a%20%2fetc%2fprocmailrc%7b%2c.orig%7d%20%20echo%20%26%2339%3b%20DELIVER%3d%2fusr%2flibexec%2fdovecot%2fdeliver%20LOGFILE%3d%2fvar%2flog%2fprocmail.log%20TRAP%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail-logger.pl%20%3a0wi%20VIRTUALMIN%3d%7c%2fetc%2fwebmin%2fvirtual-server%2flookup-domain.pl%20%24LOGNAME%20EXITCODE%3d%24%3f%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24EXITCODE%26%2334%3b%20%3d%20%26%2334%3b73%26%2334%3b%20%2fdev%2fnull%20EXITCODE%3d0%20%3a0%20%2a%20%3f%2fbin%2ftest%20%26%2334%3b%24VIRTUALMIN%26%2334%3b%20%21%3d%20%26%2334%3b%26%2334%3b%20%7b%20INCLUDERC%3d%2fetc%2fwebmin%2fvirtual-server%2fprocmail%2f%24VIRTUALMIN%20%7d%20DEFAULT%3d%24HOME%2fMaildir%2f%20ORGMAIL%3d%24HOME%2fMaildir%2f%20DROPPRIVS%3dyes%20%3a0w%20%7c%20%24DELIVER%20%3a0%20%24DEFAULT%20%26%2339%3b%20%26gt%3b%20%2fetc%2fprocmailrc%20%20sed%20-i%20%26%2334%3bs%7cprotocol%20lda%20%7b%7cprotocol%20lda%20%7b%5cn%20mail%5c_plugins%20%3d%20%5c%24mail%5c_plugins%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fconf.d%2f15-lda.conf%20%20sed%20-i%20%26%2334%3bs%7c%5eprotocols%20%3d.%2a%24%7cprotocols%20%3d%20imap%20sieve%7c%26%2334%3b%20%2fetc%2fdovecot%2fdovecot.conf%20%20echo%20%26%2339%3b%20service%20managesieve-login%20%7b%20inet_listener%20sieve%20%7b%20port%20%3d%204190%20%7d%20%7d%20%26%2339%3b%20%26gt%3b%26gt%3b%20%2fetc%2fdovecot%2fconf." aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f08%2fvirtualmin-sieve%2f&t=virtualmin%3a%20sieve" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</div><div class=footer-right><nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css><script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
 <script src=https://blog.vorona.me/js/main.js></script>
-<script src=https://blog.vorona.me/js/code-copy.js></script>
-</html>
+<script src=https://blog.vorona.me/js/code-copy.js></script></html>

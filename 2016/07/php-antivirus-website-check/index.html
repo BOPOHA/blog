@@ -1,127 +1,23 @@
-<!doctype html><html lang=en-us>
-<head>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title> PHP: antivirus website check | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/07/php-antivirus-website-check/>
-<meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="all,follow">
-<meta name=googlebot content="index,follow,snippet,archive">
-<meta property="og:title" content="PHP: antivirus website check">
-<meta property="og:description" content="Автоматизированное сканирование:
+<!doctype html><html lang=en-us><head><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=https://blog.vorona.me/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>PHP: antivirus website check | No.Try not. Do… or do not. There is no try.</title><link rel=canonical href=https://blog.vorona.me/2016/07/php-antivirus-website-check/><meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="PHP: antivirus website check"><meta property="og:description" content="Автоматизированное сканирование:
 Базовая установка:
 yum install clamav -y cd /root/install rm -rf maldetect-* wget http://www.rfxn.com/downloads/maldetect-current.tar.gz tar xfz maldetect-current.tar.gz cd maldetect-* ./install.sh cd ~ && rm -rf /root/install/maldetect-* && rm -rf /etc/cron.daily/maldet echo &#34;.avi .jpg .flv .png &#34; > /usr/local/maldetect/ignore\_file\_ext Сканирование:
 freshclam ; maldet -u ; maldet -d ; maldet --scan-all /home/ Ручная проверка на предмет подозрительных файлов:
 Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:
-eval.*str_rot13 eval.*base64_decode eval.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.vorona.me/2016/07/php-antivirus-website-check/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2016-07-21T03:02:01+00:00">
-<meta property="article:modified_time" content="2016-07-21T03:02:01+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="PHP: antivirus website check">
-<meta name=twitter:description content="Автоматизированное сканирование:
+eval.*str_rot13 eval.*base64_decode eval."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.vorona.me/2016/07/php-antivirus-website-check/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-07-21T03:02:01+00:00"><meta property="article:modified_time" content="2016-07-21T03:02:01+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="PHP: antivirus website check"><meta name=twitter:description content="Автоматизированное сканирование:
 Базовая установка:
 yum install clamav -y cd /root/install rm -rf maldetect-* wget http://www.rfxn.com/downloads/maldetect-current.tar.gz tar xfz maldetect-current.tar.gz cd maldetect-* ./install.sh cd ~ && rm -rf /root/install/maldetect-* && rm -rf /etc/cron.daily/maldet echo &#34;.avi .jpg .flv .png &#34; > /usr/local/maldetect/ignore\_file\_ext Сканирование:
 freshclam ; maldet -u ; maldet -d ; maldet --scan-all /home/ Ручная проверка на предмет подозрительных файлов:
 Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:
-eval.*str_rot13 eval.*base64_decode eval.">
-<link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q==">
-<link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script>
-</head><body class="max-width mx-auto px3 ltr">
-<div class="content index py4">
-<div id=header-post>
-<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+eval.*str_rot13 eval.*base64_decode eval."><link rel=stylesheet href=https://blog.vorona.me/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><link rel=icon type=image/png href=https://blog.vorona.me/images/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-70800220-1","auto"),ga("send","pageview"))</script></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu>
-<span id=nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span>
-<br>
-<span id=actions>
-<ul>
-<li>
-<a class=icon href=https://blog.vorona.me/2016/06/f24-install/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=https://blog.vorona.me/2016/07/virsh-port-forwarding/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i>
-</a>
-</li><li>
-<a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i>
-</a>
-</li></ul><span id=i-prev class=info style=display:none>Previous post</span>
+<span id=menu><span id=nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://blog.vorona.me/2016/06/f24-install/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://blog.vorona.me/2016/07/virsh-port-forwarding/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span>
-</span>
-<br>
-<div id=share style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Facebook>
-<i class="fab fa-facebook" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&text=PHP%3a%20antivirus%20website%20check" aria-label=Twitter>
-<i class="fab fa-twitter" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Linkedin>
-<i class="fab fa-linkedin" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&is_video=false&description=PHP%3a%20antivirus%20website%20check" aria-label=Pinterest>
-<i class="fab fa-pinterest" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=PHP%3a%20antivirus%20website%20check&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Email>
-<i class="fas fa-envelope" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Pocket>
-<i class="fab fa-get-pocket" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=reddit>
-<i class="fab fa-reddit" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&name=PHP%3a%20antivirus%20website%20check&description=%d0%90%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5%20%d1%81%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0a%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d0%b0%d1%8f%20%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%3a%0ayum%20install%20clamav%20-y%20cd%20%2froot%2finstall%20rm%20-rf%20maldetect-%2a%20wget%20http%3a%2f%2fwww.rfxn.com%2fdownloads%2fmaldetect-current.tar.gz%20tar%20xfz%20maldetect-current.tar.gz%20cd%20maldetect-%2a%20.%2finstall.sh%20cd%20~%20%26amp%3b%26amp%3b%20rm%20-rf%20%2froot%2finstall%2fmaldetect-%2a%20%26amp%3b%26amp%3b%20rm%20-rf%20%2fetc%2fcron.daily%2fmaldet%20echo%20%26%2334%3b.avi%20.jpg%20.flv%20.png%20%26%2334%3b%20%26gt%3b%20%2fusr%2flocal%2fmaldetect%2fignore%5c_file%5c_ext%20%d0%a1%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0afreshclam%20%3b%20maldet%20-u%20%3b%20maldet%20-d%20%3b%20maldet%20--scan-all%20%2fhome%2f%20%d0%a0%d1%83%d1%87%d0%bd%d0%b0%d1%8f%20%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0%20%d0%bd%d0%b0%20%d0%bf%d1%80%d0%b5%d0%b4%d0%bc%d0%b5%d1%82%20%d0%bf%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d1%85%20%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2%3a%0a%d0%9f%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d0%b5%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d1%8c%20%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%81%d1%8f%20%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b5%d0%bc%20%d1%81%d0%bb%d0%b5%d0%b4%d1%83%d1%8e%d1%89%d0%b8%d1%85%20%d0%ba%d0%be%d0%bc%d0%b1%d0%b8%d0%bd%d0%b0%d1%86%d0%b8%d0%b9%2c%20%d0%ba%d0%be%d1%82%d0%be%d1%80%d1%8b%d0%b5%20%d0%bd%d0%b0%d1%85%d0%be%d0%b4%d1%8f%d1%82%d1%81%d1%8f%20%d0%b2%20%d0%be%d0%b4%d0%bd%d0%be%d0%b9%20%d1%81%d1%82%d1%80%d0%be%d0%ba%d0%b5%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%3a%0aeval.%2astr_rot13%20eval.%2abase64_decode%20eval." aria-label=Tumblr>
-<i class="fab fa-tumblr" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&t=PHP%3a%20antivirus%20website%20check" aria-label="Hacker News">
-<i class="fab fa-hacker-news" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=toc>
-<nav id=TableOfContents></nav></div></span>
-</div><article class=post itemscope itemtype=http://schema.org/BlogPosting>
-<header>
-<h1 class=posttitle itemprop="name headline">
-PHP: antivirus website check
-</h1><div class=meta>
-<div class=postdate>
-<time datetime="2016-07-21 03:02:01 +0000 UTC" itemprop=datePublished>2016-07-21</time>
-</div><div class=article-category>
-<i class="fas fa-archive"></i>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&text=PHP%3a%20antivirus%20website%20check" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&is_video=false&description=PHP%3a%20antivirus%20website%20check" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=PHP%3a%20antivirus%20website%20check&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&name=PHP%3a%20antivirus%20website%20check&description=%d0%90%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5%20%d1%81%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0a%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d0%b0%d1%8f%20%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%3a%0ayum%20install%20clamav%20-y%20cd%20%2froot%2finstall%20rm%20-rf%20maldetect-%2a%20wget%20http%3a%2f%2fwww.rfxn.com%2fdownloads%2fmaldetect-current.tar.gz%20tar%20xfz%20maldetect-current.tar.gz%20cd%20maldetect-%2a%20.%2finstall.sh%20cd%20~%20%26amp%3b%26amp%3b%20rm%20-rf%20%2froot%2finstall%2fmaldetect-%2a%20%26amp%3b%26amp%3b%20rm%20-rf%20%2fetc%2fcron.daily%2fmaldet%20echo%20%26%2334%3b.avi%20.jpg%20.flv%20.png%20%26%2334%3b%20%26gt%3b%20%2fusr%2flocal%2fmaldetect%2fignore%5c_file%5c_ext%20%d0%a1%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0afreshclam%20%3b%20maldet%20-u%20%3b%20maldet%20-d%20%3b%20maldet%20--scan-all%20%2fhome%2f%20%d0%a0%d1%83%d1%87%d0%bd%d0%b0%d1%8f%20%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0%20%d0%bd%d0%b0%20%d0%bf%d1%80%d0%b5%d0%b4%d0%bc%d0%b5%d1%82%20%d0%bf%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d1%85%20%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2%3a%0a%d0%9f%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d0%b5%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d1%8c%20%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%81%d1%8f%20%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b5%d0%bc%20%d1%81%d0%bb%d0%b5%d0%b4%d1%83%d1%8e%d1%89%d0%b8%d1%85%20%d0%ba%d0%be%d0%bc%d0%b1%d0%b8%d0%bd%d0%b0%d1%86%d0%b8%d0%b9%2c%20%d0%ba%d0%be%d1%82%d0%be%d1%80%d1%8b%d0%b5%20%d0%bd%d0%b0%d1%85%d0%be%d0%b4%d1%8f%d1%82%d1%81%d1%8f%20%d0%b2%20%d0%be%d0%b4%d0%bd%d0%be%d0%b9%20%d1%81%d1%82%d1%80%d0%be%d0%ba%d0%b5%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%3a%0aeval.%2astr_rot13%20eval.%2abase64_decode%20eval." aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&t=PHP%3a%20antivirus%20website%20check" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">PHP: antivirus website check</h1><div class=meta><div class=postdate><time datetime="2016-07-21 03:02:01 +0000 UTC" itemprop=datePublished>2016-07-21</time></div><div class=article-category><i class="fas fa-archive"></i>
 <a class=category-link href=https://blog.vorona.me/categories/linux>Linux</a>
 ,
-<a class=category-link href=https://blog.vorona.me/categories/virtualmin>virtualmin</a>
-</div></div></header><div class=content itemprop=articleBody>
-<p><strong>Автоматизированное сканирование:</strong></p><p>Базовая установка:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install clamav -y  
+<a class=category-link href=https://blog.vorona.me/categories/virtualmin>virtualmin</a></div></div></header><div class=content itemprop=articleBody><p><strong>Автоматизированное сканирование:</strong></p><p>Базовая установка:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install clamav -y  
 </span></span><span style=display:flex><span>cd /root/install  
 </span></span><span style=display:flex><span>rm -rf maldetect-*  
 </span></span><span style=display:flex><span>wget http://www.rfxn.com/downloads/maldetect-current.tar.gz  
@@ -135,8 +31,7 @@ PHP: antivirus website check
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>.png &#34;</span> &gt; /usr/local/maldetect/ignore<span style=color:#ae81ff>\_</span>file<span style=color:#ae81ff>\_</span>ext  
 </span></span></code></pre></div><p>Сканирование:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>freshclam ; maldet -u ; maldet -d ;  
 </span></span><span style=display:flex><span>maldet --scan-all /home/  
-</span></span></code></pre></div><p><strong>Ручная проверка</strong> на предмет подозрительных файлов:<br>
-Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>eval.*str_rot13  
+</span></span></code></pre></div><p><strong>Ручная проверка</strong> на предмет подозрительных файлов:<br>Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>eval.*str_rot13  
 </span></span><span style=display:flex><span>eval.*base64_decode  
 </span></span><span style=display:flex><span>eval.*gzinflate  
 </span></span><span style=display:flex><span>file<span style=color:#ae81ff>\_</span>put<span style=color:#ae81ff>\_</span>contents.*base64_decode  
@@ -169,66 +64,9 @@ PHP: antivirus website check
 </span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> $yzcW;
 </span></span><span style=display:flex><span> <span style=color:#f92672>}</span>eval<span style=color:#f92672>(</span>OLsy<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;
 </span></span></span><span style=display:flex><span><span style=color:#e6db74>...
-</span></span></span></code></pre></div></div></article><div id=footer-post-container>
-<div id=footer-post>
-<div id=nav-footer style=display:none>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none>
-<nav id=TableOfContents></nav></div><div id=share-footer style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Facebook>
-<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&text=PHP%3a%20antivirus%20website%20check" aria-label=Twitter>
-<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Linkedin>
-<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&is_video=false&description=PHP%3a%20antivirus%20website%20check" aria-label=Pinterest>
-<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="mailto:?subject=PHP%3a%20antivirus%20website%20check&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Email>
-<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Pocket>
-<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=reddit>
-<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&name=PHP%3a%20antivirus%20website%20check&description=%d0%90%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5%20%d1%81%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0a%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d0%b0%d1%8f%20%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%3a%0ayum%20install%20clamav%20-y%20cd%20%2froot%2finstall%20rm%20-rf%20maldetect-%2a%20wget%20http%3a%2f%2fwww.rfxn.com%2fdownloads%2fmaldetect-current.tar.gz%20tar%20xfz%20maldetect-current.tar.gz%20cd%20maldetect-%2a%20.%2finstall.sh%20cd%20~%20%26amp%3b%26amp%3b%20rm%20-rf%20%2froot%2finstall%2fmaldetect-%2a%20%26amp%3b%26amp%3b%20rm%20-rf%20%2fetc%2fcron.daily%2fmaldet%20echo%20%26%2334%3b.avi%20.jpg%20.flv%20.png%20%26%2334%3b%20%26gt%3b%20%2fusr%2flocal%2fmaldetect%2fignore%5c_file%5c_ext%20%d0%a1%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0afreshclam%20%3b%20maldet%20-u%20%3b%20maldet%20-d%20%3b%20maldet%20--scan-all%20%2fhome%2f%20%d0%a0%d1%83%d1%87%d0%bd%d0%b0%d1%8f%20%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0%20%d0%bd%d0%b0%20%d0%bf%d1%80%d0%b5%d0%b4%d0%bc%d0%b5%d1%82%20%d0%bf%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d1%85%20%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2%3a%0a%d0%9f%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d0%b5%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d1%8c%20%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%81%d1%8f%20%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b5%d0%bc%20%d1%81%d0%bb%d0%b5%d0%b4%d1%83%d1%8e%d1%89%d0%b8%d1%85%20%d0%ba%d0%be%d0%bc%d0%b1%d0%b8%d0%bd%d0%b0%d1%86%d0%b8%d0%b9%2c%20%d0%ba%d0%be%d1%82%d0%be%d1%80%d1%8b%d0%b5%20%d0%bd%d0%b0%d1%85%d0%be%d0%b4%d1%8f%d1%82%d1%81%d1%8f%20%d0%b2%20%d0%be%d0%b4%d0%bd%d0%be%d0%b9%20%d1%81%d1%82%d1%80%d0%be%d0%ba%d0%b5%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%3a%0aeval.%2astr_rot13%20eval.%2abase64_decode%20eval." aria-label=Tumblr>
-<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
-</a>
-</li><li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&t=PHP%3a%20antivirus%20website%20check" aria-label="Hacker News">
-<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
-</a>
-</li></ul></div><div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu>
-<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC>
-<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share>
-<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
-<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div></div></div><footer id=footer>
-<div class=footer-left>
-Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.
-</div><div class=footer-right>
-<nav>
-<ul>
-<li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css>
-<script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
+</span></span></span></code></pre></div></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&text=PHP%3a%20antivirus%20website%20check" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&is_video=false&description=PHP%3a%20antivirus%20website%20check" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=PHP%3a%20antivirus%20website%20check&body=Check out this article: https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&title=PHP%3a%20antivirus%20website%20check" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&name=PHP%3a%20antivirus%20website%20check&description=%d0%90%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5%20%d1%81%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0a%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d0%b0%d1%8f%20%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%3a%0ayum%20install%20clamav%20-y%20cd%20%2froot%2finstall%20rm%20-rf%20maldetect-%2a%20wget%20http%3a%2f%2fwww.rfxn.com%2fdownloads%2fmaldetect-current.tar.gz%20tar%20xfz%20maldetect-current.tar.gz%20cd%20maldetect-%2a%20.%2finstall.sh%20cd%20~%20%26amp%3b%26amp%3b%20rm%20-rf%20%2froot%2finstall%2fmaldetect-%2a%20%26amp%3b%26amp%3b%20rm%20-rf%20%2fetc%2fcron.daily%2fmaldet%20echo%20%26%2334%3b.avi%20.jpg%20.flv%20.png%20%26%2334%3b%20%26gt%3b%20%2fusr%2flocal%2fmaldetect%2fignore%5c_file%5c_ext%20%d0%a1%d0%ba%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%3a%0afreshclam%20%3b%20maldet%20-u%20%3b%20maldet%20-d%20%3b%20maldet%20--scan-all%20%2fhome%2f%20%d0%a0%d1%83%d1%87%d0%bd%d0%b0%d1%8f%20%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0%20%d0%bd%d0%b0%20%d0%bf%d1%80%d0%b5%d0%b4%d0%bc%d0%b5%d1%82%20%d0%bf%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d1%85%20%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2%3a%0a%d0%9f%d0%be%d0%b4%d0%be%d0%b7%d1%80%d0%b8%d0%b5%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d1%8c%20%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%81%d1%8f%20%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b5%d0%bc%20%d1%81%d0%bb%d0%b5%d0%b4%d1%83%d1%8e%d1%89%d0%b8%d1%85%20%d0%ba%d0%be%d0%bc%d0%b1%d0%b8%d0%bd%d0%b0%d1%86%d0%b8%d0%b9%2c%20%d0%ba%d0%be%d1%82%d0%be%d1%80%d1%8b%d0%b5%20%d0%bd%d0%b0%d1%85%d0%be%d0%b4%d1%8f%d1%82%d1%81%d1%8f%20%d0%b2%20%d0%be%d0%b4%d0%bd%d0%be%d0%b9%20%d1%81%d1%82%d1%80%d0%be%d0%ba%d0%b5%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%3a%0aeval.%2astr_rot13%20eval.%2abase64_decode%20eval." aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.vorona.me%2f2016%2f07%2fphp-antivirus-website-check%2f&t=PHP%3a%20antivirus%20website%20check" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2022 Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</div><div class=footer-right><nav><ul><li><a href=https://blog.vorona.me/>Home</a></li><li><a href=https://blog.vorona.me/posts/>All posts</a></li><li><a href=https://blog.vorona.me/tags/>Tags</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=https://blog.vorona.me/lib/font-awesome/css/all.min.css><script src=https://blog.vorona.me/lib/jquery/jquery.min.js></script>
 <script src=https://blog.vorona.me/js/main.js></script>
-<script src=https://blog.vorona.me/js/code-copy.js></script>
-</html>
+<script src=https://blog.vorona.me/js/code-copy.js></script></html>
