@@ -21,7 +21,7 @@
 
   {{- $options := (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") -}}
   {{- $styles := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "scss/style.scss" . | resources.ToCSS $options | resources.Fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}"> 
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
 
   <!-- Custom CSS -->
   {{ range .Site.Params.css }} <link rel="stylesheet" href="{{ . | absURL }}"> {{ end }}
@@ -33,10 +33,14 @@
   {{ end }}
   {{ end }}
   {{ if .Site.GoogleAnalytics }}
-  {{ if .Site.Params.googleAnalyticsAsync }}
-    {{ template "_internal/google_analytics_async.html" . }}
-  {{ else }}
-    {{ template "_internal/google_analytics.html" . }}
-  {{ end }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ .Site.GoogleAnalytics }}');
+    </script>
   {{ end }}
 </head>
