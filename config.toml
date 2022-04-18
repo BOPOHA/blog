@@ -7,7 +7,7 @@ copyright = "Copyright © 2020–2022, Anatolii Vorona; all rights reserved."
 canonifyurls = true
 paginate = 4
 enableRobotsTXT = true
-googleAnalytics = "UA-70800220-1"
+googleAnalytics = "G-4NT8K1F5CV"
 googleAnalyticsAsync = true
     
 [params]
