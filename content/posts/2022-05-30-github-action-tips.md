@@ -1,7 +1,6 @@
 ---
 title: "Github Action Tips"
 date: 2022-05-30T10:00:25+02:00
-draft: true
 categories:
   - github
   - github-actions
@@ -80,7 +79,7 @@ jobs:
           cd work_dir
           ./venv/bin/pytest -v
 ```
-If your contaner runs as a non-root user, you need adds some github-related things.
+If your contaner runs as a non-root user, you need to add some github-related things.
 See comments bellow.
 ```dockerfile
 ARG CODE_VERSION
