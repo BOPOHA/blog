@@ -105,3 +105,71 @@ RUN mkdir /github && \
 USER builder
 WORKDIR /github/home
 ```
+
+# how to add simple commit message checks on PR
+
+Easy, but wrong way:
+
+```yaml
+---
+on:
+  - pull_request
+
+jobs:
+  pr-check1:
+     runs-on: ubuntu-latest
+     steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: get log changes
+        id: get_log_changes
+        # we need to cover the cases when commits contains merges from deployment branches:
+        #  Merge remote-tracking branch 'origin/deployment/QA...' into feature/...
+        #  Merge branch 'deployment/QA...' into feature/...
+        run: |
+          raw=$(git log ^origin/${{ github.base_ref }} origin/${{ github.head_ref }} --merges --oneline)
+          echo ::set-output name=greps::$( echo "$raw" | grep "Merge branch 'deploy\|Merge remote-tracking branch 'origin/deploy" )
+          echo ::set-output name=count::$( echo "$raw" | grep "Merge branch 'deploy\|Merge remote-tracking branch 'origin/deploy" | wc -l )
+
+      - name: debug outputs
+        run: |
+          echo ${{ steps.get_log_changes.outputs.greps }}
+          echo ${{ steps.get_log_changes.outputs.count }}
+
+      - name: fail if count
+        if: ${{ steps.get_log_changes.outputs.count != 0 }}
+        run: exit 1
+```
+
+Fastest and right way, using Github API:
+
+```yaml
+---
+on:
+  - pull_request
+
+jobs:
+  pr-check1:
+     runs-on: ubuntu-latest
+     steps:
+
+      - name: get commits and run checks
+        # we need to cover the cases when commits contains merges from deployment branches:
+        #  Merge remote-tracking branch 'origin/deployment/QA...' into feature/...
+        #  Merge branch 'deployment/QA...' into feature/...
+        id: get_log_changes
+        run: |
+          jq --version
+          curl "${{ github.event.pull_request._links.commits.href }}?per_page=250" -s \
+             -H "Accept: application/vnd.github.v3+json" \
+             -H "Authorization: Bearer ${{ github.token }}" > /tmp/commits.json
+          count=$(cat /tmp/commits.json | jq '.[].commit.message' | grep "Merge branch 'deploy\|Merge remote-tracking branch 'origin/deploy" | wc -l)
+          echo ::set-output name=count::${count}
+
+      - name: fail if count is not zero
+        if: ${{ steps.get_log_changes.outputs.count != 0 }}
+        run: exit 1
+```
