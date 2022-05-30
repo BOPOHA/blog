@@ -15,3 +15,8 @@ categories:
   run: |
     echo "$GITHUB_CONTEXT"
 ```
+
+```yaml
+- name: debig GitHub context
+  run: cat /home/runner/work/_temp/_github_workflow/event.json
+```
