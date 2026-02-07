@@ -11,7 +11,8 @@ tags:
   - titlebar
 
 ---
-<a href="http://blog.samalik.com/make-your-gnome-title-bar-smaller-fedora-24-update/" target="_blank">Source.</a>  
+This is a quick tip to make the title bar of gnome a bit smaller.
+http://blog.samalik.com/make-your-gnome-title-bar-smaller-fedora-24-update/ 
 ```shell 
 echo '  
 window.ssd headerbar.titlebar {  

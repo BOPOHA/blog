@@ -1,11 +1,11 @@
 baseURL = "https://blog.vorona.me/"
 languageCode = "en-us"
 title = "No.Try not. Do… or do not. There is no try."
-theme = "cactus"
+theme = "archie"
 author = "Anatolii Vorona"
 copyright = "Copyright © 2020–2022, Anatolii Vorona; all rights reserved."
 canonifyurls = true
-paginate = 4
+pagination.pagerSize = 4
 enableRobotsTXT = true
 googleAnalytics = "G-4NT8K1F5CV"
 googleAnalyticsAsync = true
