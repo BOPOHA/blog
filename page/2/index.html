@@ -1,0 +1,150 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>No.Try not. Do… or do not. There is no try. | Home</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta property="og:image" content="https://blog.vorona.me/"><link rel=alternate type=application/rss+xml href=https://blog.vorona.me/index.xml title="No.Try not. Do… or do not. There is no try."><meta property="og:url" content="https://blog.vorona.me/"><meta property="og:site_name" content="No.Try not. Do… or do not. There is no try."><meta property="og:title" content="No.Try not. Do… or do not. There is no try."><meta property="og:description" content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="No.Try not. Do… or do not. There is no try."><meta name=twitter:description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><link href=https://blog.vorona.me/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://blog.vorona.me/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css></head><body><div class=content><header><div class=main><a href=https://blog.vorona.me/>No.Try not. Do… or do not. There is no try.</a></div><nav><a href=https://blog.vorona.me/>Home</a>
+<a href=https://blog.vorona.me/posts/>All posts</a>
+<a href=https://blog.vorona.me/tags/>Tags</a></nav></header><main class=list><div class=site-description></div><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2020/09/install-selfhosted-internal-mailinator/>install selfhosted internal mailinator</a></h1><time>Sep 1, 2020</time><br><div class=description><h1 id=setup-domain>Setup domain</h1><ul><li>Log in <a href=https://my.freenom.com/>https://my.freenom.com/</a></li><li>buy yourdomain.here for $0/year</li><li>set glue records:<pre tabindex=0><code>KLEY.yourdomain.here - xxx.yyy.zzz.abc
+YELK.yourdomain.here - xxx.yyy.zzz.abc
+</code></pre></li><li>Use custom nameservers:<pre tabindex=0><code>KLEY.yourdomain.here
+YELK.yourdomain.here
+</code></pre></li></ul><h1 id=setup-dns-service>Setup DNS service</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>sudo -i
+</span></span><span style=display:flex><span>dnf install bind bind-utils
+</span></span><span style=display:flex><span>cat &gt; /etc/named.conf <span style=color:#e6db74>&lt;&lt; TOLIK
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>options {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        listen-on port 53 { any; };
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        listen-on-v6 port 53 {  none; };
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        directory       &#34;/var/named&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        dump-file       &#34;/var/named/data/cache_dump.db&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        statistics-file &#34;/var/named/data/named_stats.txt&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        memstatistics-file &#34;/var/named/data/named_mem_stats.txt&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        secroots-file   &#34;/var/named/data/named.secroots&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        recursing-file  &#34;/var/named/data/named.recursing&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        recursion no;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        dnssec-enable no;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        dnssec-validation no;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        managed-keys-directory &#34;/var/named/dynamic&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        pid-file &#34;/run/named/named.pid&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        session-keyfile &#34;/run/named/session.key&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        include &#34;/etc/crypto-policies/back-ends/bind.config&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>};
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>logging {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        channel default_debug {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                file &#34;data/named.run&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                severity dynamic;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        };
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>};
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>zone &#34;.&#34; IN {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        type hint;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        file &#34;named.ca&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>};
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>include &#34;/etc/named.rfc1912.zones&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>include &#34;/etc/named.root.key&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>zone &#34;yourdomain.here&#34; {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        type master;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        file &#34;yourdomain.here.hosts&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        allow-transfer {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                127.0.0.1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                localnets;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                };
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        };
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>TOLIK</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cat &gt; /var/named/yourdomain.here.hosts <span style=color:#e6db74>&lt;&lt; TOLIK
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>\$ttl 38400
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>@  IN  SOA  yourdomain.here. root.yourdomain.here. (
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            1461722457
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            10800
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            3600
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            604800
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            38400 )
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>yourdomain.here.  IN  A  xxx.yyy.zzz.abc
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>kley.yourdomain.here. IN      A       xxx.yyy.zzz.abc
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>yelk.yourdomain.here. IN      A       xxx.yyy.zzz.abc
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>yourdomain.here.  IN  MX  5 yourdomain.here.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>@  IN  NS  kley.yourdomain.here.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>@  IN  NS  yelk.yourdomain.here.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>TOLIK</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>named-checkconf /etc/named.conf
+</span></span><span style=display:flex><span>named-checkzone  yourdomain.here  /var/named/yourdomain.here.hosts 
+</span></span><span style=display:flex><span><span style=color:#75715e># zone yourdomain.here/IN: loaded serial 1461722457</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># OK</span>
+</span></span></code></pre></div><h1 id=setup-mail-service>Setup MAIL service</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>mkdir /srv/inbucket
+</span></span><span style=display:flex><span>chown daemon:daemon /srv/inbucket
+</span></span><span style=display:flex><span>dnf install -y https://github.com/inbucket/inbucket/releases/download/v3.0.0-beta3/inbucket_3.0.0-beta3_linux_amd64.rpm
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mkdir /etc/systemd/system/inbucket.service.d/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cat &gt; /etc/systemd/system/inbucket.service.d/override.conf <span style=color:#e6db74>&lt;&lt; TOLIK
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>[Service]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_SMTP_ADDR=0.0.0.0:25
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_SMTP_DOMAIN=yourdomain.here
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_SMTP_MAXRECIPIENTS=2000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_SMTP_DEFAULTACCEPT=false
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_SMTP_ACCEPTDOMAINS=yourdomain.here
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_POP3_DOMAIN=yourdomain.here
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_POP3_ADDR=127.0.0.1:1100
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_WEB_ADDR=0.0.0.0:80
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_WEB_MAILBOXPROMPT=@yourdomain.here
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_WEB_MONITORHISTORY=1000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_STORAGE_TYPE=file
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_STORAGE_PARAMS=path:/srv/inbucket
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_STORAGE_RETENTIONPERIOD=&#34;8760h&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_STORAGE_RETENTIONSLEEP=&#34;3600s&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Environment=INBUCKET_STORAGE_MAILBOXMSGCAP=&#34;0&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>NonBlocking=true
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>NoNewPrivileges=yes
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>AmbientCapabilities=CAP_NET_BIND_SERVICE
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>LimitNOFILE=500000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>LimitNPROC=500000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>TOLIK</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>systemctl start inbucket
+</span></span><span style=display:flex><span>systemctl status inbucket
+</span></span><span style=display:flex><span>systemctl enable inbucket
+</span></span></code></pre></div>&mldr;</div><a class=readmore href=https://blog.vorona.me/2020/09/install-selfhosted-internal-mailinator/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/posts/2016-08-27-chrome-clean-passwords/>google-chrome: clean passwords</a></h1><time>Nov 30, 2016</time><br><div class=description><p>Run google-chrome with &ndash;password-store=basic (<a href=https://blog.vorona.me/2016/04/how-to-disable-keyring-password-storage-for-chrome/>example</a>)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>dnf install sqliteman  
+</span></span><span style=display:flex><span>cp ~/.config/google-chrome/Default/Web<span style=color:#ae81ff>\ </span>Data<span style=color:#f92672>{</span>,.bak<span style=color:#f92672>}</span>  
+</span></span><span style=display:flex><span>sqliteman ~/.config/google-chrome/Default/Web<span style=color:#ae81ff>\ </span>Data  
+</span></span></code></pre></div>&mldr;</div><a class=readmore href=https://blog.vorona.me/posts/2016-08-27-chrome-clean-passwords/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/>install MediaWiki and update with git pull</a></h1><time>Nov 7, 2016</time><br><div class=description><p>Install:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>cd ~/public_html  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/core.git .  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/vendor.git  
+</span></span><span style=display:flex><span>cd ~/public_html/skins/  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/skins/CologneBlue  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/skins/Modern  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/skins/MonoBook￼￼  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/skins/VectorV2  
+</span></span><span style=display:flex><span>git clone https://gerrit.wikimedia.org/r/mediawiki/skins/Vector  
+</span></span></code></pre></div><p>Update:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#66d9ef>for</span> i in <span style=color:#e6db74>`</span>find ~ -type d -name <span style=color:#ae81ff>\.</span>git<span style=color:#e6db74>`</span>; <span style=color:#66d9ef>do</span> cd <span style=color:#e6db74>`</span>dirname $i<span style=color:#e6db74>`</span> ; git pull ; <span style=color:#66d9ef>done</span>  
+</span></span></code></pre></div><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>-sh-4.2$ find . -type d -name <span style=color:#ae81ff>\.</span>git  
+</span></span><span style=display:flex><span>./public_html/skins/CologneBlue/.git  
+</span></span><span style=display:flex><span>./public_html/skins/Modern/.git  
+</span></span><span style=display:flex><span>./public_html/skins/VectorV2/.git  
+</span></span><span style=display:flex><span>./public_html/skins/Vector/.git  
+</span></span><span style=display:flex><span>./public_html/skins/MonoBook/.git  
+</span></span><span style=display:flex><span>./public_html/vendor/.git  
+</span></span><span style=display:flex><span>./public_html/.git  
+</span></span></code></pre></div><p>Upgrade DB:<br><code>shell/opt/rh/rh-php72/root/usr/bin/php maintenance/update.php</code></p><p>test tst 22</p>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/11/install-mediawiki-and-update-with-git-pull/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/>fedora: make gnome title bar smaller</a></h1><time>Aug 29, 2016</time><br><div class=description><p>This is a quick tip to make the title bar of gnome a bit smaller.
+<a href=http://blog.samalik.com/make-your-gnome-title-bar-smaller-fedora-24-update/>http://blog.samalik.com/make-your-gnome-title-bar-smaller-fedora-24-update/</a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo <span style=color:#e6db74>&#39;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>window.ssd headerbar.titlebar {  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>padding-top: 4px;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>padding-bottom: 4px;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>min-height: 0;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>window.ssd headerbar.titlebar button.titlebutton {  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>padding: 0px;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>min-height: 0;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>min-width: 0;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#39;</span> &gt; ~/.config/gtk-3.0/gtk.css  
+</span></span></code></pre></div>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/08/fedora-make-gnome-title-bar-smaller/>Read more ⟶</a></section><ul class=pagination><span class="page-item page-prev"><a href=https://blog.vorona.me/ class=page-link aria-label=Previous><span aria-hidden=true>← Prev</span></a>
+</span><span class="page-item page-next"><a href=https://blog.vorona.me/page/3/ class=page-link aria-label=Next><span aria-hidden=true>Next →</span></a></span></ul></main><footer><div style=display:flex><a class=soc href rel=me title=github><svg class="feather"><use href="https://blog.vorona.me/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#%25!s%28%3cnil%3e%29"/></svg></a><a class=border></a><a class=soc href rel=me title=email><svg class="feather"><use href="https://blog.vorona.me/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#%25!s%28%3cnil%3e%29"/></svg></a><a class=border></a></div><div class=footer-info>2026 Copyright © 2020–2022, Anatolii Vorona; all rights reserved. | <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-4NT8K1F5CV"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-4NT8K1F5CV")}</script></div></body></html>

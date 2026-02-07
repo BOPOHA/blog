@@ -1,1 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtualmin on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/tags/virtualmin/</link><description>Recent content in virtualmin on No.Try not. Do… or do not. There is no try.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/tags/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>yum install dovecot-pigeonhole -y cp -a /etc/procmailrc{,.orig} echo &amp;#39; DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &amp;#34;$EXITCODE&amp;#34; = &amp;#34;73&amp;#34; /dev/null EXITCODE=0 :0 * ?/bin/test &amp;#34;$VIRTUALMIN&amp;#34; != &amp;#34;&amp;#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT &amp;#39; &amp;gt; /etc/procmailrc sed -i &amp;#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&amp;#34; /etc/dovecot/conf.d/15-lda.conf sed -i &amp;#34;s|^protocols =.*$|protocols = imap sieve|&amp;#34; /etc/dovecot/dovecot.conf echo &amp;#39; service managesieve-login { inet_listener sieve { port = 4190 } } &amp;#39; &amp;gt;&amp;gt; /etc/dovecot/conf.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtualmin on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/tags/virtualmin/</link><description>Recent content in Virtualmin on No.Try not. Do… or do not. There is no try.</description><generator>Hugo</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/tags/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install dovecot-pigeonhole -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp -a /etc/procmailrc&lt;span style="color:#f92672"&gt;{&lt;/span&gt;,.orig&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DELIVER=/usr/libexec/dovecot/deliver 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;LOGFILE=/var/log/procmail.log 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;TRAP=/etc/webmin/virtual-server/procmail-logger.pl 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0wi 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;EXITCODE=$? 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;* ?/bin/test &amp;#34;$EXITCODE&amp;#34; = &amp;#34;73&amp;#34; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;/dev/null 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;EXITCODE=0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;* ?/bin/test &amp;#34;$VIRTUALMIN&amp;#34; != &amp;#34;&amp;#34; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;{ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DEFAULT=$HOME/Maildir/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;ORGMAIL=$HOME/Maildir/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DROPPRIVS=yes 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0w 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;| $DELIVER 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;$DEFAULT 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;&lt;/span&gt; &amp;gt; /etc/procmailrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sed -i &lt;span style="color:#e6db74"&gt;&amp;#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&amp;#34;&lt;/span&gt; /etc/dovecot/conf.d/15-lda.conf 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sed -i &lt;span style="color:#e6db74"&gt;&amp;#34;s|^protocols =.*&lt;/span&gt;$&lt;span style="color:#e6db74"&gt;|protocols = imap sieve|&amp;#34;&lt;/span&gt; /etc/dovecot/dovecot.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;service managesieve-login { 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; inet_listener sieve { 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; port = 4190 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; } 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;} &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/dovecot/conf.d/20-managesieve.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;service dovecot restart 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

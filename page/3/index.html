@@ -1,0 +1,130 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>No.Try not. Do… or do not. There is no try. | Home</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta property="og:image" content="https://blog.vorona.me/"><link rel=alternate type=application/rss+xml href=https://blog.vorona.me/index.xml title="No.Try not. Do… or do not. There is no try."><meta property="og:url" content="https://blog.vorona.me/"><meta property="og:site_name" content="No.Try not. Do… or do not. There is no try."><meta property="og:title" content="No.Try not. Do… or do not. There is no try."><meta property="og:description" content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="No.Try not. Do… or do not. There is no try."><meta name=twitter:description content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."><link href=https://blog.vorona.me/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://blog.vorona.me/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css></head><body><div class=content><header><div class=main><a href=https://blog.vorona.me/>No.Try not. Do… or do not. There is no try.</a></div><nav><a href=https://blog.vorona.me/>Home</a>
+<a href=https://blog.vorona.me/posts/>All posts</a>
+<a href=https://blog.vorona.me/tags/>Tags</a></nav></header><main class=list><div class=site-description></div><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/08/virtualmin-sieve/>virtualmin: sieve</a></h1><time>Aug 25, 2016</time><br><div class=description><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install dovecot-pigeonhole -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cp -a /etc/procmailrc<span style=color:#f92672>{</span>,.orig<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DELIVER=/usr/libexec/dovecot/deliver  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>LOGFILE=/var/log/procmail.log  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>TRAP=/etc/webmin/virtual-server/procmail-logger.pl  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>:0wi  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EXITCODE=$?  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>:0  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>* ?/bin/test &#34;$EXITCODE&#34; = &#34;73&#34;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>/dev/null  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EXITCODE=0  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>:0  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>* ?/bin/test &#34;$VIRTUALMIN&#34; != &#34;&#34;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DEFAULT=$HOME/Maildir/  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>ORGMAIL=$HOME/Maildir/  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DROPPRIVS=yes  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>:0w  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>| $DELIVER  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>:0  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>$DEFAULT  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#39;</span> &gt; /etc/procmailrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&#34;</span> /etc/dovecot/conf.d/15-lda.conf 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#34;s|^protocols =.*</span>$<span style=color:#e6db74>|protocols = imap sieve|&#34;</span> /etc/dovecot/dovecot.conf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>service managesieve-login {  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    inet_listener sieve {  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        port = 4190  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    }  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>} &#39;</span> &gt;&gt; /etc/dovecot/conf.d/20-managesieve.conf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>service dovecot restart  
+</span></span></code></pre></div>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/08/virtualmin-sieve/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/07/virsh-port-forwarding/>virsh: port forwarding</a></h1><time>Jul 26, 2016</time><br><div class=description><p>Source:<br><a href=https://www.redhat.com/archives/libvirt-users/2015-June/msg00033.html>https://www.redhat.com/archives/libvirt-users/2015-June/msg00033.html</a><br><a href=https://www.libvirt.org/hooks.html>https://www.libvirt.org/hooks.html</a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>mkdir /etc/libvirt/hooks  
+</span></span><span style=display:flex><span>touch /etc/libvirt/hooks/qemu  
+</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>700</span> /etc/libvirt/hooks/qemu  
+</span></span></code></pre></div><p>edit /etc/libvirt/hooks/qemu:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>#!/bin/bash  
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e># used some from advanced script to have multiple ports: use an equal number of guest and host ports</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Update the following variables to fit your setup  </span>
+</span></span><span style=display:flex><span>Guest_name<span style=color:#f92672>=</span>node001  
+</span></span><span style=display:flex><span>Guest_ipaddr<span style=color:#f92672>=</span>192.168.122.181  
+</span></span><span style=display:flex><span>Host_ipaddr<span style=color:#f92672>=</span>&lt;external_ip&gt;  
+</span></span><span style=display:flex><span>Host_port<span style=color:#f92672>=(</span> <span style=color:#e6db74>&#39;63636&#39;</span> <span style=color:#e6db74>&#39;5555&#39;</span> <span style=color:#e6db74>&#39;5556&#39;</span> <span style=color:#e6db74>&#39;5557&#39;</span> <span style=color:#e6db74>&#39;5558&#39;</span> <span style=color:#e6db74>&#39;5559&#39;</span> <span style=color:#e6db74>&#39;5560&#39;</span> <span style=color:#f92672>)</span>  
+</span></span><span style=display:flex><span>Guest_port<span style=color:#f92672>=(</span> <span style=color:#e6db74>&#39;63636&#39;</span> <span style=color:#e6db74>&#39;5555&#39;</span> <span style=color:#e6db74>&#39;5556&#39;</span> <span style=color:#e6db74>&#39;5557&#39;</span> <span style=color:#e6db74>&#39;5558&#39;</span> <span style=color:#e6db74>&#39;5559&#39;</span> <span style=color:#e6db74>&#39;5560&#39;</span> <span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>length<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span> <span style=color:#e6db74>${#</span>Host_port[@]<span style=color:#e6db74>}</span> <span style=color:#f92672>--</span> <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>))</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>1<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>Guest_name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>2<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;stopped&#34;</span> <span style=color:#f92672>]</span> <span style=color:#f92672>||</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>2<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;reconnect&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i in <span style=color:#e6db74>`</span>seq <span style=color:#ae81ff>0</span> $length<span style=color:#e6db74>`</span>; <span style=color:#66d9ef>do</span>  
+</span></span><span style=display:flex><span>iptables -t nat -D PREROUTING -d <span style=color:#e6db74>${</span>Host<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span> -p tcp --dport <span style=color:#e6db74>${</span>Host<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span> -j DNAT --to <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span>:<span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span>  
+</span></span><span style=display:flex><span>iptables -D FORWARD -d <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span>/32 -p tcp -m state --state NEW -m tcp --dport <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span> -j ACCEPT  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>2<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;start&#34;</span> <span style=color:#f92672>]</span> <span style=color:#f92672>||</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>2<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;reconnect&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i in <span style=color:#e6db74>`</span>seq <span style=color:#ae81ff>0</span> $length<span style=color:#e6db74>`</span>; <span style=color:#66d9ef>do</span>  
+</span></span><span style=display:flex><span>iptables -t nat -A PREROUTING -d <span style=color:#e6db74>${</span>Host<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span> -p tcp --dport <span style=color:#e6db74>${</span>Host<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span> -j DNAT --to <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span>:<span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span>  
+</span></span><span style=display:flex><span>iptables -I FORWARD -d <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>ipaddr<span style=color:#e6db74>}</span>/32 -p tcp -m state --state NEW -m tcp --dport <span style=color:#e6db74>${</span>Guest<span style=color:#ae81ff>\_</span>port[$i]<span style=color:#e6db74>}</span> -j ACCEPT  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>  
+</span></span></code></pre></div><p>Alternative variant:</p>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/07/virsh-port-forwarding/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/07/php-antivirus-website-check/>PHP: antivirus website check</a></h1><time>Jul 21, 2016</time><br><div class=description><p><strong>Автоматизированное сканирование:</strong></p><p>Базовая установка:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>yum install clamav -y  
+</span></span><span style=display:flex><span>cd /root/install  
+</span></span><span style=display:flex><span>rm -rf maldetect-*  
+</span></span><span style=display:flex><span>wget http://www.rfxn.com/downloads/maldetect-current.tar.gz  
+</span></span><span style=display:flex><span>tar xfz maldetect-current.tar.gz  
+</span></span><span style=display:flex><span>cd maldetect-*  
+</span></span><span style=display:flex><span>./install.sh  
+</span></span><span style=display:flex><span>cd ~ <span style=color:#f92672>&amp;&amp;</span> rm -rf /root/install/maldetect-* <span style=color:#f92672>&amp;&amp;</span> rm -rf /etc/cron.daily/maldet  
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;.avi  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>.jpg  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>.flv  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>.png &#34;</span> &gt; /usr/local/maldetect/ignore<span style=color:#ae81ff>\_</span>file<span style=color:#ae81ff>\_</span>ext  
+</span></span></code></pre></div><p>Сканирование:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>freshclam ; maldet -u ; maldet -d ;  
+</span></span><span style=display:flex><span>maldet --scan-all /home/  
+</span></span></code></pre></div><p><strong>Ручная проверка</strong> на предмет подозрительных файлов:<br>Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>eval.*str_rot13  
+</span></span><span style=display:flex><span>eval.*base64_decode  
+</span></span><span style=display:flex><span>eval.*gzinflate  
+</span></span><span style=display:flex><span>file<span style=color:#ae81ff>\_</span>put<span style=color:#ae81ff>\_</span>contents.*base64_decode  
+</span></span><span style=display:flex><span>base64_encode.*eval  
+</span></span><span style=display:flex><span>eval.<span style=color:#ae81ff>\*</span><span style=color:#f92672>(</span>.<span style=color:#ae81ff>\*</span>GLOBAL.*<span style=color:#f92672>(</span>  
+</span></span><span style=display:flex><span>isset.<span style=color:#ae81ff>\*</span><span style=color:#f92672>(</span>.<span style=color:#ae81ff>\*</span>eval.*<span style=color:#f92672>(</span>  
+</span></span></code></pre></div><p>Однострочники такие:</p>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/07/php-antivirus-website-check/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=https://blog.vorona.me/2016/06/f24-install/>F25.install</a></h1><time>Jun 25, 2016</time><br><div class=description><p>Updated for F25.<br>Repos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt; EOF &gt; /etc/yum.repos.d/google-chrome.repo  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>[google-chrome]  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>name=google-chrome - \$basearch  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>baseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>enabled=1  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>gpgcheck=1  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>gpgkey=https://dl-ssl.google.com/linux/linux\_signing\_key.pub  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dnf copr enable vorona/pidgin-xmpp-receipts  
+</span></span><span style=display:flex><span>dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm -y  
+</span></span><span style=display:flex><span>dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm -y  
+</span></span><span style=display:flex><span>dnf install http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm -y  
+</span></span></code></pre></div><p>Pkgs:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>dnf install google-chrome-stable -y  
+</span></span><span style=display:flex><span>dnf install pidgin-xmpp-receipts -y  
+</span></span><span style=display:flex><span>dnf install purple-skypeweb viber -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dnf install openssh-askpass vim htop atop mc screen keychain p7zip curl vim shutter sysfsutils pwgen <span style=color:#ae81ff>\ </span> 
+</span></span><span style=display:flex><span>pidgin dmidecode git mercurial python-xmpp python-beautifulsoup4 libnotify alsa-utils <span style=color:#ae81ff>\ </span> 
+</span></span><span style=display:flex><span>thunderbird pidgin-xmpp-receipts pidgin-otr freerdp shutter vnc lm_sensors <span style=color:#ae81ff>\ </span> 
+</span></span><span style=display:flex><span>rdesktop firefox fping ipmitool nmap filezilla remmina remmina-plugins* -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dnf install geany-plugins-addons geany-themes geany-plugins-codenav geany-plugins-automark <span style=color:#ae81ff>\ </span> 
+</span></span><span style=display:flex><span>geany-plugins-markdown geany-plugins-overview geany-plugins-autoclose -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dnf install icedtea-web -y  
+</span></span><span style=display:flex><span>dnf install virt-manager -y  
+</span></span><span style=display:flex><span>usermod -G kvm -a USERNAME  
+</span></span><span style=display:flex><span>usermod -G libvirt -a USERNAME
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dnf install u2f-hidraw-policy -y  
+</span></span><span style=display:flex><span>dnf install docker-compose docker -y  
+</span></span><span style=display:flex><span>groupadd docker  
+</span></span><span style=display:flex><span>usermod -aG docker USERNAME  
+</span></span><span style=display:flex><span>systemctl enable docker  
+</span></span><span style=display:flex><span>systemctl start docker  
+</span></span></code></pre></div><p>Tuning:</p>&mldr;</div><a class=readmore href=https://blog.vorona.me/2016/06/f24-install/>Read more ⟶</a></section><ul class=pagination><span class="page-item page-prev"><a href=https://blog.vorona.me/page/2/ class=page-link aria-label=Previous><span aria-hidden=true>← Prev</span></a>
+</span><span class="page-item page-next"><a href=https://blog.vorona.me/page/4/ class=page-link aria-label=Next><span aria-hidden=true>Next →</span></a></span></ul></main><footer><div style=display:flex><a class=soc href rel=me title=github><svg class="feather"><use href="https://blog.vorona.me/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#%25!s%28%3cnil%3e%29"/></svg></a><a class=border></a><a class=soc href rel=me title=email><svg class="feather"><use href="https://blog.vorona.me/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#%25!s%28%3cnil%3e%29"/></svg></a><a class=border></a></div><div class=footer-info>2026 Copyright © 2020–2022, Anatolii Vorona; all rights reserved. | <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-4NT8K1F5CV"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-4NT8K1F5CV")}</script></div></body></html>

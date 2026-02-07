@@ -1,6 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtualmin on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/categories/virtualmin/</link><description>Recent content in virtualmin on No.Try not. Do… or do not. There is no try.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>yum install dovecot-pigeonhole -y cp -a /etc/procmailrc{,.orig} echo &amp;#39; DELIVER=/usr/libexec/dovecot/deliver LOGFILE=/var/log/procmail.log TRAP=/etc/webmin/virtual-server/procmail-logger.pl :0wi VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME EXITCODE=$? :0 * ?/bin/test &amp;#34;$EXITCODE&amp;#34; = &amp;#34;73&amp;#34; /dev/null EXITCODE=0 :0 * ?/bin/test &amp;#34;$VIRTUALMIN&amp;#34; != &amp;#34;&amp;#34; { INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN } DEFAULT=$HOME/Maildir/ ORGMAIL=$HOME/Maildir/ DROPPRIVS=yes :0w | $DELIVER :0 $DEFAULT &amp;#39; &amp;gt; /etc/procmailrc sed -i &amp;#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&amp;#34; /etc/dovecot/conf.d/15-lda.conf sed -i &amp;#34;s|^protocols =.*$|protocols = imap sieve|&amp;#34; /etc/dovecot/dovecot.conf echo &amp;#39; service managesieve-login { inet_listener sieve { port = 4190 } } &amp;#39; &amp;gt;&amp;gt; /etc/dovecot/conf.</description></item><item><title>PHP: antivirus website check</title><link>https://blog.vorona.me/2016/07/php-antivirus-website-check/</link><pubDate>Thu, 21 Jul 2016 03:02:01 +0000</pubDate><guid>https://blog.vorona.me/2016/07/php-antivirus-website-check/</guid><description>Автоматизированное сканирование:
-Базовая установка:
-yum install clamav -y cd /root/install rm -rf maldetect-* wget http://www.rfxn.com/downloads/maldetect-current.tar.gz tar xfz maldetect-current.tar.gz cd maldetect-* ./install.sh cd ~ &amp;amp;&amp;amp; rm -rf /root/install/maldetect-* &amp;amp;&amp;amp; rm -rf /etc/cron.daily/maldet echo &amp;#34;.avi .jpg .flv .png &amp;#34; &amp;gt; /usr/local/maldetect/ignore\_file\_ext Сканирование:
-freshclam ; maldet -u ; maldet -d ; maldet --scan-all /home/ Ручная проверка на предмет подозрительных файлов:
-Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:
-eval.*str_rot13 eval.*base64_decode eval.</description></item><item><title>WP-monitoring</title><link>https://blog.vorona.me/2016/04/wp-monitoring/</link><pubDate>Fri, 29 Apr 2016 00:43:21 +0000</pubDate><guid>https://blog.vorona.me/2016/04/wp-monitoring/</guid><description>git clone https://github.com/rsmmr/git-notifier cd public_html git init echo &amp;#39;*.jpg *.jpeg *.gif *.png *.ico *.css *.zip *.tgz *.gz *.rar *.bz2 *.doc *.xls *.exe *.pdf *.ppt *.txt *.tar *.mid *.midi *.wav *.bmp *.rtf *.js *.wmv *.wma *.mp3 *.mpg *.avi *.mpeg *.mp4 *.divx *.ttf *.woff2 *.woff *.swf *.scss *.svg *.mo *.po *.pot *.eot *.xap *.json *.xml *.md *.non_progressive .git-notifier.dat .git-notifier.dat.bak git-notifier.log wp-content/cache/ &amp;#39; &amp;gt; .gitignore git config hooks.mailinglist your@mail ln -s $HOME/git-notifier/git-notifier .git/hooks/post-commit crontab -l &amp;gt; tmp.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtualmin on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/categories/virtualmin/</link><description>Recent content in Virtualmin on No.Try not. Do… or do not. There is no try.</description><generator>Hugo</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Thu, 25 Aug 2016 07:59:56 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/virtualmin/index.xml" rel="self" type="application/rss+xml"/><item><title>virtualmin: sieve</title><link>https://blog.vorona.me/2016/08/virtualmin-sieve/</link><pubDate>Thu, 25 Aug 2016 07:59:56 +0000</pubDate><guid>https://blog.vorona.me/2016/08/virtualmin-sieve/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install dovecot-pigeonhole -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp -a /etc/procmailrc&lt;span style="color:#f92672"&gt;{&lt;/span&gt;,.orig&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DELIVER=/usr/libexec/dovecot/deliver 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;LOGFILE=/var/log/procmail.log 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;TRAP=/etc/webmin/virtual-server/procmail-logger.pl 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0wi 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;VIRTUALMIN=|/etc/webmin/virtual-server/lookup-domain.pl $LOGNAME 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;EXITCODE=$? 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;* ?/bin/test &amp;#34;$EXITCODE&amp;#34; = &amp;#34;73&amp;#34; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;/dev/null 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;EXITCODE=0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;* ?/bin/test &amp;#34;$VIRTUALMIN&amp;#34; != &amp;#34;&amp;#34; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;{ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;INCLUDERC=/etc/webmin/virtual-server/procmail/$VIRTUALMIN 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DEFAULT=$HOME/Maildir/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;ORGMAIL=$HOME/Maildir/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;DROPPRIVS=yes 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0w 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;| $DELIVER 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;:0 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;$DEFAULT 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;&lt;/span&gt; &amp;gt; /etc/procmailrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sed -i &lt;span style="color:#e6db74"&gt;&amp;#34;s|protocol lda {|protocol lda {\n mail\_plugins = \$mail\_plugins sieve|&amp;#34;&lt;/span&gt; /etc/dovecot/conf.d/15-lda.conf 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sed -i &lt;span style="color:#e6db74"&gt;&amp;#34;s|^protocols =.*&lt;/span&gt;$&lt;span style="color:#e6db74"&gt;|protocols = imap sieve|&amp;#34;&lt;/span&gt; /etc/dovecot/dovecot.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;service managesieve-login { 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; inet_listener sieve { 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; port = 4190 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; } 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;} &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/dovecot/conf.d/20-managesieve.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;service dovecot restart 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>PHP: antivirus website check</title><link>https://blog.vorona.me/2016/07/php-antivirus-website-check/</link><pubDate>Thu, 21 Jul 2016 03:02:01 +0000</pubDate><guid>https://blog.vorona.me/2016/07/php-antivirus-website-check/</guid><description>&lt;p&gt;&lt;strong&gt;Автоматизированное сканирование:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Базовая установка:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install clamav -y 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /root/install 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rm -rf maldetect-* 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget http://www.rfxn.com/downloads/maldetect-current.tar.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar xfz maldetect-current.tar.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd maldetect-* 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./install.sh 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~ &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /root/install/maldetect-* &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /etc/cron.daily/maldet 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;.avi 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;.jpg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;.flv 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;.png &amp;#34;&lt;/span&gt; &amp;gt; /usr/local/maldetect/ignore&lt;span style="color:#ae81ff"&gt;\_&lt;/span&gt;file&lt;span style="color:#ae81ff"&gt;\_&lt;/span&gt;ext 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Сканирование:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;freshclam ; maldet -u ; maldet -d ; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;maldet --scan-all /home/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Ручная проверка&lt;/strong&gt; на предмет подозрительных файлов:&lt;br&gt;
+Подозриельность определяеся наличием следующих комбинаций, которые находятся в одной строке файла:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eval.*str_rot13 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eval.*base64_decode 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eval.*gzinflate 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;file&lt;span style="color:#ae81ff"&gt;\_&lt;/span&gt;put&lt;span style="color:#ae81ff"&gt;\_&lt;/span&gt;contents.*base64_decode 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;base64_encode.*eval 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eval.&lt;span style="color:#ae81ff"&gt;\*&lt;/span&gt;&lt;span style="color:#f92672"&gt;(&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;\*&lt;/span&gt;GLOBAL.*&lt;span style="color:#f92672"&gt;(&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;isset.&lt;span style="color:#ae81ff"&gt;\*&lt;/span&gt;&lt;span style="color:#f92672"&gt;(&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;\*&lt;/span&gt;eval.*&lt;span style="color:#f92672"&gt;(&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однострочники такие:&lt;/p&gt;</description></item><item><title>WP-monitoring</title><link>https://blog.vorona.me/2016/04/wp-monitoring/</link><pubDate>Fri, 29 Apr 2016 00:43:21 +0000</pubDate><guid>https://blog.vorona.me/2016/04/wp-monitoring/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/rsmmr/git-notifier 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd public_html 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git init 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39;*.jpg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.jpeg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.gif 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.png 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.ico 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.css 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.zip 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.tgz 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.rar 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.bz2 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.doc 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.xls 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.exe 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.pdf 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.ppt 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.txt 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.tar 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mid 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.midi 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.wav 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.bmp 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.rtf 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.js 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.wmv 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.wma 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mp3 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mpg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.avi 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mpeg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mp4 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.divx 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.ttf 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.woff2 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.woff 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.swf 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.scss 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.svg 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.mo 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.po 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.pot 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.eot 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.xap 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.json 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.xml 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.md 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;*.non_progressive 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;.git-notifier.dat 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;.git-notifier.dat.bak 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;git-notifier.log 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;wp-content/cache/ 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;&lt;/span&gt; &amp;gt; .gitignore 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config hooks.mailinglist your@mail 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s $HOME/git-notifier/git-notifier .git/hooks/post-commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crontab -l &amp;gt; tmp.cron 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39;0 \* \* \* \* cd $HOME/public_html ; git add . &amp;amp;&amp;amp; git commit -am &amp;#34;$(date +\%Y-\%m-\%d@\%H:\%M)&amp;#34; &amp;gt; /dev/null&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; tmp.cron 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crontab tmp.cron 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rm -rf tmp.cron 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

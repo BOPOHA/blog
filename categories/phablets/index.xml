@@ -1,7 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Phablets on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/categories/phablets/</link><description>Recent content in Phablets on No.Try not. Do… or do not. There is no try.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Fri, 29 Apr 2016 01:39:26 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/phablets/index.xml" rel="self" type="application/rss+xml"/><item><title>ZE551ML: flash firmware</title><link>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</link><pubDate>Fri, 29 Apr 2016 01:39:26 +0000</pubDate><guid>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</guid><description>Asus ZenFone 2
-Unlock boot loader.
-Unlock Device App you can find at https://www.asus.com here in Utilities:
-Direct link. Download lastest firmware&amp;hellip; you can find it at https://www.asus.com here in Firmware (select &amp;ldquo;for WW SKU only*&amp;rdquo;)
-Also, direct link can be curled: URL='https://www.asus.com/us/support/Download/39/1/0/13/Lk0Sg1Ulh0Ph49Hl/32/' curl -s $URL| grep -o &amp;quot;\&amp;quot;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW.*.zip\&amp;quot;&amp;quot; &amp;quot;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW-2.20.40.174-user.zip&amp;quot; TWRP
-u can found here https://dl.twrp.me/Z00A/ (twrp-3.0.0-0-Z00A.img 15.3M )
-adb sideload</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Phablets on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/categories/phablets/</link><description>Recent content in Phablets on No.Try not. Do… or do not. There is no try.</description><generator>Hugo</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Fri, 29 Apr 2016 01:39:26 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/categories/phablets/index.xml" rel="self" type="application/rss+xml"/><item><title>ZE551ML: flash firmware</title><link>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</link><pubDate>Fri, 29 Apr 2016 01:39:26 +0000</pubDate><guid>https://blog.vorona.me/2016/04/ze551ml-flash-firmware/</guid><description>&lt;p&gt;Asus ZenFone 2&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Unlock boot loader.&lt;br&gt;
+Unlock Device App you can find at &lt;code&gt;https://www.asus.com&lt;/code&gt; &lt;a href="https://www.asus.com/us/Phone/ZenFone_2_ZE551ML/HelpDesk_Download/"&gt;here&lt;/a&gt; in Utilities:&lt;br&gt;
+&lt;a href="http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UnlockApp_ze551ml_20150723.apk"&gt;Direct link&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Download lastest firmware&amp;hellip;
+you can find it at &lt;a href="https://www.asus.com"&gt;https://www.asus.com&lt;/a&gt; &lt;a href="https://www.asus.com/us/Phone/ZenFone_2_ZE551ML/HelpDesk_Download/"&gt;here&lt;/a&gt; in Firmware (select &amp;ldquo;for WW SKU only*&amp;rdquo;)&lt;br&gt;
+Also, direct link can be curled:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;URL='https://www.asus.com/us/support/Download/39/1/0/13/Lk0Sg1Ulh0Ph49Hl/32/' 
+curl -s $URL| grep -o &amp;quot;\&amp;quot;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW.*.zip\&amp;quot;&amp;quot; 
+&amp;quot;http://dlcdnet.asus.com/pub/ASUS/ZenFone/ZE551ML/UL-Z00A-WW-2.20.40.174-user.zip&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;
+&lt;p&gt;TWRP&lt;br&gt;
+u can found here &lt;a href="https://dl.twrp.me/Z00A/"&gt;https://dl.twrp.me/Z00A/&lt;/a&gt; (&lt;a href="https://dl.twrp.me/Z00A/twrp-3.0.0-0-Z00A.img"&gt;twrp-3.0.0-0-Z00A.img&lt;/a&gt; 15.3M )&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;adb sideload&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

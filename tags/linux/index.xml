@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on No.Try not. Do… or do not. There is no try.</title><link>https://blog.vorona.me/tags/linux/</link><description>Recent content in Linux on No.Try not. Do… or do not. There is no try.</description><generator>Hugo</generator><language>en-us</language><copyright>Copyright © 2020–2022, Anatolii Vorona; all rights reserved.</copyright><lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.vorona.me/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Building a 4TB Video Storage Stack on Fedora (Transmission + SMB)</title><link>https://blog.vorona.me/posts/2026-02-07-torrent/</link><pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate><guid>https://blog.vorona.me/posts/2026-02-07-torrent/</guid><description>&lt;p&gt;I recently added a &lt;strong&gt;4TB Seagate IronWolf&lt;/strong&gt; HDD to my ThinkCentre Server to serve as a dedicated video storage and torrenting machine. To get the most out of the spinning rust, I needed a setup that minimizes fragmentation and network latency.&lt;/p&gt;
+&lt;p&gt;Here is the complete, non-interactive configuration guide for &lt;strong&gt;Fedora 43 Server&lt;/strong&gt;, moving from a raw disk to a fully tuned streaming stack. All commands are executed as &lt;strong&gt;root&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id="the-hardware"&gt;The Hardware&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Disk:&lt;/strong&gt; Seagate IronWolf 4TB (SATA, 5400RPM)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OS:&lt;/strong&gt; Fedora Linux 43 (Server Edition)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mount Point:&lt;/strong&gt; &lt;code&gt;/srv/TORRENT&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="step-1-partitioning--formatting"&gt;Step 1: Partitioning &amp;amp; Formatting&lt;/h3&gt;
+&lt;p&gt;Since the drive is larger than 2TB, we must use GPT. We use &lt;code&gt;sgdisk&lt;/code&gt; for non-interactive partitioning and &lt;code&gt;mkfs.ext4&lt;/code&gt; with specific flags to optimize for large video files.&lt;/p&gt;</description></item></channel></rss>
