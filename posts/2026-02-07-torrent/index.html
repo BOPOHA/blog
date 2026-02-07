@@ -159,13 +159,7 @@ The Hardware Disk: Seagate IronWolf 4TB (SATA, 5400RPM) OS: Fedora Linux 43 (Ser
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 3. Restart Samba</span>
 </span></span><span style=display:flex><span>systemctl enable --now smb
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>### Verification</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Run <span style=color:#e6db74>`</span>lsblk<span style=color:#e6db74>`</span> to confirm the mount and check the service status.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>```</span>bash
-</span></span><span style=display:flex><span>lsblk
+</span></span></code></pre></div><h3 id=verification>Verification</h3><p>Run <code>lsblk</code> to confirm the mount and check the service status.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>lsblk
 </span></span><span style=display:flex><span>systemctl status transmission-daemon
 </span></span></code></pre></div><h3 id=step-5-selinux--permissions-fedora-specific>Step 5: SELinux & Permissions (Fedora Specific)</h3><p>Fedora enforces strict security. By default, it will block Samba from accessing <code>/srv</code>. We must update the security context and ensure user permissions allow directory traversal.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. Allow Samba to read/write the torrent directory in SELinux</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># (Requires policycoreutils-python-utils)</span>
