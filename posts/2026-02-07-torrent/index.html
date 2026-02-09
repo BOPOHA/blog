@@ -164,6 +164,7 @@ The Hardware Disk: Seagate IronWolf 4TB (SATA, 5400RPM) OS: Fedora Linux 43 (Ser
 </span></span><span style=display:flex><span><span style=color:#75715e># (Requires policycoreutils-python-utils)</span>
 </span></span><span style=display:flex><span>semanage fcontext -a -t samba_share_t <span style=color:#e6db74>&#34;/srv/TORRENT(/.*)?&#34;</span>
 </span></span><span style=display:flex><span>restorecon -R -v /srv/TORRENT
+</span></span><span style=display:flex><span>setsebool -P allow_transmission_anon_write <span style=color:#ae81ff>1</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 2. Add your user to the transmission group for easy access</span>
 </span></span><span style=display:flex><span>usermod -a -G transmission think
