@@ -1,20 +1,32 @@
 ---
 layout: post
-title: "Back to School for DevOps: When 65 GiB Free Is Not Enough"
+title: "Six Years Without Reinstalling Fedora: When 65 GiB Free Wasn't Enough"
 date: 2026-09-20
 tags: [devops, fedora, rhel, btrfs, electron, capacity-planning, rpm]
 ---
 
-I have used Fedora on my primary machine long enough to see it grow up with
-me. The rescue initramfs on this ThinkPad is dated **26 December 2020**—the
-original Fedora 33 installation. The same installation is now running Fedora
-44, with 7.2.x kernels in `/boot`.
+This Fedora installation has been upgraded in place since Fedora 33. The
+rescue initramfs on this ThinkPad is dated **26 December 2020**, and the same
+installation is now running Fedora 44 with 7.2.x kernels in `/boot`. More
+importantly, its Btrfs filesystem was created at the same time and has never
+been reformatted.
 
-That longevity is one reason I remain a RHEL/Fedora enthusiast. It also makes
-the machine a useful reminder that infrastructure knowledge is not replaced by
-writing YAML. A Senior DevOps role still needs filesystem, storage, packaging,
-and failure-analysis skills. The declarative layer is valuable; it is not the
-whole system.
+Both `/` and `/home` are Btrfs subvolumes on the same 475.4 GiB
+`nvme0n1p3` partition. The operating system, containers, caches, user data,
+and build trees therefore compete for one storage pool that carries nearly
+six years of allocation history.
+
+Someone who reinstalls and recreates their filesystems every one to three years
+may never encounter this particular state: formatting quietly resets that
+history. Continuous operation preserves it. That longevity is valuable, but
+it also means that filesystems, like software, need observation and occasional
+maintenance.
+
+Keeping one installation alive across so many releases is one reason I remain
+a RHEL/Fedora enthusiast. It also makes the machine a useful reminder that
+infrastructure knowledge is not replaced by writing YAML. A Senior DevOps role
+still needs filesystem, storage, packaging, and failure-analysis skills. The
+declarative layer is valuable; it is not the whole system.
 
 ## The incident
 
@@ -26,7 +38,7 @@ artifact. This is not a small application build:
 | Prepared source artifact | 7.6 GiB compressed |
 | Ninja work graph | about 45,437 actions |
 | RPM build tree during the build | about 43 GiB |
-| Filesystem | 476 GiB Btrfs `/home` |
+| Filesystem | 476 GiB Btrfs shared by `/` and `/home` |
 
 The build had already compiled more than 20,000 Ninja actions when Clang
 failed to open a dependency file:
@@ -42,8 +54,8 @@ The obvious check appeared to contradict the error:
 ```
 
 This is the point where a superficial response—"delete a few logs and retry"—
-is not enough. `df -h` reports filesystem-level free space. It does not
-describe all of Btrfs's chunk-allocation state.
+is not enough. `df -h` reports logical free capacity, but it does not describe
+all of Btrfs's chunk-allocation state.
 
 ## Btrfs data space is not Btrfs metadata space
 
@@ -95,8 +107,9 @@ The significant findings were:
   delete—Lens, Freelens, Chrome, and Slack can contain real user state.
 
 I bounded the journal, pruned genuinely unused Podman images only after
-reviewing them, and removed selected disposable caches. Then I ran a targeted
-Btrfs balance:
+reviewing them, and removed selected disposable caches. That freed logical
+space inside existing Btrfs chunks. I then ran a targeted balance to reclaim
+sparsely used chunks as unallocated device space:
 
 ```bash
 sudo btrfs balance start -dusage=10 -musage=50 /home
@@ -145,6 +158,12 @@ run without `%prep`, which would otherwise delete the incremental build tree.
 5. **Balance Btrfs deliberately.** A whole-filesystem balance is not routine
    maintenance. Use a targeted balance after substantial deletion or when
    unallocated space approaches zero and metadata is under pressure.
+6. **Long-lived filesystems need maintenance too.** Age alone did not cause
+   this failure. Nearly six years of allocations, deletions, upgrades,
+   containers, caches, and large builds shaped the chunk layout. Monitor
+   filesystem usage and device health, run regular scrubs to check integrity,
+   and balance only when the allocation state justifies it—not merely because
+   time has passed.
 
 For large local builds, I now check this before starting:
 
@@ -155,5 +174,6 @@ podman system df
 ```
 
 The lesson is pleasantly old-fashioned: platform automation is only as good
-as the operator's model of the platform underneath it. YAML does not make a
-full Btrfs metadata chunk become writable.
+as the operator's model of the platform underneath it. Software is not the
+only part of a long-lived system that accumulates state. YAML cannot allocate
+another Btrfs metadata chunk when no unallocated device space remains.
