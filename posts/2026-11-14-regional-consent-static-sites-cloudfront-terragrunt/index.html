@@ -104,7 +104,15 @@ means Canada; <code>CA</code> as a US subdivision means California. Mixing those
 namespaces is an easy configuration error.</p><h2 id=cloudfront-function-and-terraform-module>CloudFront Function and Terraform module</h2><p>A CloudFront Function is enough for a small request-time decision. It is not a
 Lambda function: it uses the CloudFront Functions runtime and event format.
 It also cannot make an HTTP call to an external geolocation API. That is not
-needed here because CloudFront supplies the headers.</p><p>The following is a complete small local module, <code>modules/consent-edge/main.tf</code>.
+needed here because CloudFront supplies the headers.</p><p>For reuse across repositories, we publish an MIT-licensed
+<a href=https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent>CloudFront regional consent module</a>.
+The first release is <a href=https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent/releases/tag/v0.1.0>v0.1.0</a>,
+with Terraform validation, mocked-provider tests and tests that execute the
+generated JavaScript in CI. A local module is useful while developing the
+design; a public release gives independent sites a documented interface and
+a version they can upgrade deliberately. Policy lists still belong to each
+caller rather than being hardcoded into the reusable module.</p><p>The following is a complete small local module, <code>modules/consent-edge/main.tf</code>,
+included here so the article remains self-contained.
 The AWS provider configuration comes from the caller. Terraform inserts the
 two lists into the JavaScript using <code>jsonencode</code>, so policy data stays outside
 the handwritten handler logic.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-hcl data-lang=hcl><span style=display:flex><span><span style=color:#66d9ef>variable</span> <span style=color:#e6db74>&#34;name&#34;</span> {
@@ -227,7 +235,34 @@ to the module:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;backg
 </span></span><span style=display:flex><span>  analytics_opt_in_countries <span style=color:#f92672>=</span> <span style=color:#66d9ef>local</span>.<span style=color:#66d9ef>consent</span>.<span style=color:#66d9ef>locals</span>.<span style=color:#66d9ef>analytics_opt_in_countries</span>
 </span></span><span style=display:flex><span>  analytics_opt_in_us_states <span style=color:#f92672>=</span> <span style=color:#66d9ef>local</span>.<span style=color:#66d9ef>consent</span>.<span style=color:#66d9ef>locals</span>.<span style=color:#66d9ef>analytics_opt_in_us_states</span>
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h2 id=attach-the-policy-to-a-community-cdn-module>Attach the policy to a community CDN module</h2><p>Creating the policy is insufficient. The behaviour executing the Function
+</span></span></code></pre></div><h3 id=use-the-public-release-instead>Use the public release instead</h3><p>For the public module, keep the same include and policy locals, and replace
+the source and inputs with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-hcl data-lang=hcl><span style=display:flex><span><span style=color:#66d9ef>terraform</span> {<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  # v0.1.0, pinned to its immutable release commit.
+</span></span></span><span style=display:flex><span>  source <span style=color:#f92672>=</span> &#34;git::https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent.git?ref<span style=color:#f92672>=</span><span style=color:#66d9ef>f025f4c6ebd77ee7adca259f738516656f6e8394</span><span style=color:#960050;background-color:#1e0010>&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>inputs <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  name                       <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;example-com-consent&#34;</span>
+</span></span><span style=display:flex><span>  privacy_region_enabled     <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  analytics_opt_in_countries <span style=color:#f92672>=</span> <span style=color:#66d9ef>local</span>.<span style=color:#66d9ef>consent</span>.<span style=color:#66d9ef>locals</span>.<span style=color:#66d9ef>analytics_opt_in_countries</span>
+</span></span><span style=display:flex><span>  analytics_opt_in_us_states <span style=color:#f92672>=</span> <span style=color:#66d9ef>local</span>.<span style=color:#66d9ef>consent</span>.<span style=color:#66d9ef>locals</span>.<span style=color:#66d9ef>analytics_opt_in_us_states</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The public module keeps the resource and output names of our existing routing
+module to allow a source migration without recreating resources. Its Function
+output is <code>arn</code>, and its policy output is <code>privacy_origin_request_policy_id</code>.
+In the CDN examples below, replace
+<code>dependency.consent.outputs.function_arn</code> with <code>dependency.consent.outputs.arn</code>,
+and <code>dependency.consent.outputs.origin_request_policy_id</code> with
+<code>dependency.consent.outputs.privacy_origin_request_policy_id</code> when using the
+public release. The local teaching module above uses the shorter example
+output names.</p><p>The endpoint is disabled by default in the public module. Enabling it is
+explicit, and the caller must provide its reviewed country and US-state lists.
+Optional canonical redirects and SEP-2 federation support are also included;
+merge any other existing request logic carefully before changing a production
+association. Preserve the current provider lock, run a plan, and check resource
+addresses and code changes before applying. A GitHub repository and release
+can be used directly; Terraform Registry listing is a separate publication
+step and is not required by this Git source.</p><h2 id=attach-the-policy-to-a-community-cdn-module>Attach the policy to a community CDN module</h2><p>Creating the policy is insufficient. The behaviour executing the Function
 must reference its <code>origin_request_policy_id</code>, and the Function itself must
 be associated with that behaviour.</p><p>The two module interfaces below are different. These are <strong>CDN configuration
 excerpts</strong>: retain the existing origins, TLS certificate, aliases, DNS, S3
