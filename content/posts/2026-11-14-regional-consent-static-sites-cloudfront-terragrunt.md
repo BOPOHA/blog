@@ -211,7 +211,17 @@ Lambda function: it uses the CloudFront Functions runtime and event format.
 It also cannot make an HTTP call to an external geolocation API. That is not
 needed here because CloudFront supplies the headers.
 
-The following is a complete small local module, `modules/consent-edge/main.tf`.
+For reuse across repositories, we publish an MIT-licensed
+[CloudFront regional consent module](https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent).
+The first release is [v0.1.0](https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent/releases/tag/v0.1.0),
+with Terraform validation, mocked-provider tests and tests that execute the
+generated JavaScript in CI. A local module is useful while developing the
+design; a public release gives independent sites a documented interface and
+a version they can upgrade deliberately. Policy lists still belong to each
+caller rather than being hardcoded into the reusable module.
+
+The following is a complete small local module, `modules/consent-edge/main.tf`,
+included here so the article remains self-contained.
 The AWS provider configuration comes from the caller. Terraform inserts the
 two lists into the JavaScript using `jsonencode`, so policy data stays outside
 the handwritten handler logic.
@@ -349,6 +359,44 @@ inputs = {
   analytics_opt_in_us_states = local.consent.locals.analytics_opt_in_us_states
 }
 ```
+
+### Use the public release instead
+
+For the public module, keep the same include and policy locals, and replace
+the source and inputs with:
+
+```hcl
+terraform {
+  # v0.1.0, pinned to its immutable release commit.
+  source = "git::https://github.com/BOPOHA/terraform-aws-cloudfront-regional-consent.git?ref=f025f4c6ebd77ee7adca259f738516656f6e8394"
+}
+
+inputs = {
+  name                       = "example-com-consent"
+  privacy_region_enabled     = true
+  analytics_opt_in_countries = local.consent.locals.analytics_opt_in_countries
+  analytics_opt_in_us_states = local.consent.locals.analytics_opt_in_us_states
+}
+```
+
+The public module keeps the resource and output names of our existing routing
+module to allow a source migration without recreating resources. Its Function
+output is `arn`, and its policy output is `privacy_origin_request_policy_id`.
+In the CDN examples below, replace
+`dependency.consent.outputs.function_arn` with `dependency.consent.outputs.arn`,
+and `dependency.consent.outputs.origin_request_policy_id` with
+`dependency.consent.outputs.privacy_origin_request_policy_id` when using the
+public release. The local teaching module above uses the shorter example
+output names.
+
+The endpoint is disabled by default in the public module. Enabling it is
+explicit, and the caller must provide its reviewed country and US-state lists.
+Optional canonical redirects and SEP-2 federation support are also included;
+merge any other existing request logic carefully before changing a production
+association. Preserve the current provider lock, run a plan, and check resource
+addresses and code changes before applying. A GitHub repository and release
+can be used directly; Terraform Registry listing is a separate publication
+step and is not required by this Git source.
 
 ## Attach the policy to a community CDN module
 
